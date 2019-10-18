@@ -1,7 +1,7 @@
 import React from 'react';
 import {Route, Link} from 'react-router-dom';
 import ParentSignUpForm from './ParentSignUpForm';
-// import VolunteerSignUpForm from './VolunteerSignUpForm';
+import VolunteerSignUpForm from './VolunteerSignUpForm';
 
 function ParentOrVolunteer() {
   return (
@@ -13,11 +13,12 @@ function ParentOrVolunteer() {
       <Link to="/parent-signup-form">
         <h3>Parent</h3>
       </Link> 
-      <Route path="/parent-signup-form" component={ParentSignUpForm} />
-
       <Link to="/volunteer-signup-form">
         <h3>Volunteer</h3>
       </Link>
+
+      <Route path="/parent-signup-form" component={ParentSignUpForm} />
+      <Route path="/volunteer-signup-form" component={VolunteerSignUpForm} />
     </div>
   );
 }
