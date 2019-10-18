@@ -3,8 +3,8 @@ import React, {useState} from 'react';
 function VolunteerSignUpForm(props) {
 
   const [form, setForm] = useState({
-    // username: "",
-    // password: "",
+    username: "",
+    password: "",
     name: "",
     lastName: "",
     email: "",
@@ -25,18 +25,24 @@ function VolunteerSignUpForm(props) {
   const handleSubmit = evt => {
     evt.preventDefault();
     // Post user info to database code goes here
-    setForm({
-      // username: "",
-      // password: "",
-      name: "",
-      lastName: "",
-      email: "",
-      age: "",
-      phoneNum: "",
-      avgPerChild: "",
-      negotiable: "",
-      cprCertified: true
-    });
+    axiosWithAuth
+      .post('/parent')
+      .then(res => {
+        console.log(res);
+        setForm({
+          username: res.data.username,
+          email: res.data.email,
+          password: res.data.password,
+          name: res.data.name,
+          lastName: res.data.lastName,
+          age: res.data.age,
+          phoneNum: res.data.phoneNum,
+          avgPerChild: res.data.avgPerChild,
+          negotiable: res.data.negotiable,
+          cprCertified: res.data.cprCertified
+        });
+      })
+      .catch(err => console.log(err));
     console.log(form);
   };
 
@@ -44,7 +50,7 @@ function VolunteerSignUpForm(props) {
     <div>
       <h1>Volunteer Sign Up Form</h1>
       <form onSubmit={handleSubmit}>
-        {/* <label>Username:</label>
+        <label>Username:</label>
           <input 
             name="username"
             type="text"
@@ -67,7 +73,7 @@ function VolunteerSignUpForm(props) {
             placeholder="password"
             value={form.password}
             onChange={handleChange}
-          /> */}
+          />
         <label>First Name:</label>
           <input 
             name="name"
@@ -84,14 +90,6 @@ function VolunteerSignUpForm(props) {
             value={form.lastName}
             onChange={handleChange}
           />
-        <label>Email:</label>
-        <input 
-          name="email"
-          type="text"
-          placeholder="email"
-          value={form.email}
-          onChange={handleChange}
-        />
         <label>Age:</label>
           <input 
             name="age"

@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import axiosWithAuth from '../utils/axiosWithAuth';
 
 function ParentSignUpForm(props) {
 
@@ -23,16 +24,22 @@ function ParentSignUpForm(props) {
   const handleSubmit = evt => {
     evt.preventDefault();
     // Post user info to database code goes here
-    setForm({
-      username: "",
-      email: "",
-      password: "",
-      name: "",
-      lastName: "",
-      age: "",
-      phoneNum: "",
-      emergencyNum: ""
-    });
+    axiosWithAuth
+      .post('/parent')
+      .then(res => {
+        console.log(res);
+        setForm({
+          username: res.data.username,
+          email: res.data.email,
+          password: res.data.password,
+          name: res.data.name,
+          lastName: res.data.lastName,
+          age: res.data.age,
+          phoneNum: res.data.phoneNum,
+          emergencyNum: res.data.emergencyNum
+        });
+      })
+      .catch(err => console.log(err));
     console.log(form);
   };
 
