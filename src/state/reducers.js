@@ -1,16 +1,14 @@
-import {axiosWithAuth} from "../utils/axiosWithAuth"
-
 export const initialState = {
-    user: "testuser",
+    user: {username: "user placeholder"},
     userlist: {}
   };
 
 export const reducer = (state, action) => {
-    switch(action){
-        case "TEST" :            
+    switch(action.type){
+        case "TEST" :
             return {
                 ...state,
-                user: 'new username'
+                user: action.payload
             }
         default :
             return state
@@ -21,4 +19,19 @@ export const reducer = (state, action) => {
 // import { useStateValue } from './state';
 // then use 
 // const [{ user, userlist }, dispatch] = useStateValue();
-// example <button onClick={() => dispatch("TEST")}>test</button>
+
+// examples: <button onClick={() => dispatch({type: "BUTTON"})}>test</button>
+
+//   const [{ user, userlist }, dispatch] = useStateValue();
+//   console.log(user);
+//   useEffect(() => {
+//     axiosWithAuth()
+//       .get("/smurfs")
+//       .then(res => {
+//         console.log(res);
+//         dispatch({
+//           type: "TEST",
+//           payload: res.data
+//         });
+//       });
+//   }, []);
