@@ -1,119 +1,146 @@
 import React, {useState} from 'react';
 import {axiosWithAuth} from '../utils/axiosWithAuth';
+import {withFormik, Form, Field} from 'formik';
 
 function ParentSignUpForm(props) {
 
-  const [form, setForm] = useState({
-    username: "",
-    email: "",
-    password: "",
-    name: "",
-    lastName: "",
-    age: "",
-    phoneNum: "",
-    emergencyNum: ""
-  });
+  // const [form, setForm] = useState({
+  //   username: "",
+  //   email: "",
+  //   password: "",
+  //   name: "",
+  //   lastName: "",
+  //   age: "",
+  //   phoneNum: "",
+  //   emergencyNum: ""
+  // });
 
-  const handleChange = evt => {
-    setForm({
-      ...form,
-      [evt.target.name]: evt.target.value
-    });
-  };
+  // const handleChange = evt => {
+  //   setForm({
+  //     ...form,
+  //     [evt.target.name]: evt.target.value
+  //   });
+  // };
 
-  const handleSubmit = evt => {
-    evt.preventDefault();
-    axiosWithAuth()
-      .post('/parent')
-      .then(res => {
-        console.log(res);
-        setForm({
-          username: res.data.username,
-          email: res.data.email,
-          password: res.data.password,
-          name: res.data.name,
-          lastName: res.data.lastName,
-          age: res.data.age,
-          phoneNum: res.data.phoneNum,
-          emergencyNum: res.data.emergencyNum
-        });
-      })
-      .catch(err => console.log(err));
-    console.log(form);
-  };
+  // const handleSubmit = evt => {
+  //   evt.preventDefault();
+  //   axiosWithAuth()
+  //     .post('/parent')
+  //     .then(res => {
+  //       console.log(res);
+  //       setForm({
+  //         username: res.data.username,
+  //         email: res.data.email,
+  //         password: res.data.password,
+  //         name: res.data.name,
+  //         lastName: res.data.lastName,
+  //         age: res.data.age,
+  //         phoneNum: res.data.phoneNum,
+  //         emergencyNum: res.data.emergencyNum
+  //       });
+  //     })
+  //     .catch(err => console.log(err));
+  //   console.log(form);
+  // };
 
   return (
     <div>
       <h1>Parent Sign Up Form</h1>
-      <form onSubmit={handleSubmit}>
+      {/* <Form onSubmit={handleSubmit}> */}
+      <Form>
         <label>Username:</label>
-          <input 
+          <Field 
             name="username"
             type="text"
             placeholder="username"
-            value={form.username}
-            onChange={handleChange}
+            // value={form.username}
+            // onChange={handleChange}
           />
         <label>Email:</label>
-          <input 
+          <Field 
             name="email"
-            type="text"
+            type="email"
             placeholder="email"
-            value={form.email}
-            onChange={handleChange}
+            // value={form.email}
+            // onChange={handleChange}
           />
         <label>Password:</label>
-          <input  
+          <Field  
             name="password"
-            type="text"
+            type="password"
             placeholder="password"
-            value={form.password}
-            onChange={handleChange}
+            // value={form.password}
+            // onChange={handleChange}
           />
         <label>First Name:</label>
-          <input 
+          <Field 
             name="name"
             type="text"
             placeholder="First Name"
-            value={form.name}
-            onChange={handleChange}
+            // value={form.name}
+            // onChange={handleChange}
           />
         <label>Last Name:</label>
-          <input 
+          <Field 
             name="lastName"
             type="text"
             placeholder="Last Name"
-            value={form.lastName}
-            onChange={handleChange}
+            // value={form.lastName}
+            // onChange={handleChange}
           />
         <label>Age:</label>
-          <input 
+          <Field 
             name="age"
             type="text"
             placeholder="age"
-            value={form.age}
-            onChange={handleChange}
+            // value={form.age}
+            // onChange={handleChange}
           />
         <label>Phone Number:</label>
-          <input 
+          <Field 
             name="phoneNum"
             type="text"
             placeholder="phone number"
-            value={form.phoneNum}
-            onChange={handleChange}
+            // value={form.phoneNum}
+            // onChange={handleChange}
           />
         <label>Emergency Phone Number:</label>
-          <input 
+          <Field 
             name="emergencyNum"
             type="text"
             placeholder="Emergency phone number"
-            value={form.emergencyNum}
-            onChange={handleChange}
+            // value={form.emergencyNum}
+            // onChange={handleChange}
           />
         <button type="submit">Sign Up</button>
-      </form>
+      </Form>
     </div>
   );
 }
 
-export default ParentSignUpForm;
+const ParentFormikSignUp = withFormik({
+  mapPropsToValues({username, email, password, name, lastName, age, phoneNum, emergencyNum}) {
+    return {
+      username: username || "",
+      email: email || "",
+      password: password || "",
+      name: name || "",
+      lastName: lastName || "",
+      age: age || "",
+      phoneNum: phoneNum || "",
+      emergencyNum: emergencyNum || ""
+    };
+  },
+
+  handleSubmit(evt) {
+    // evt.preventDefault();
+    axiosWithAuth()
+      .post('/parent')
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => console.log(err));
+  }
+})(ParentSignUpForm);
+
+export default ParentFormikSignUp;
