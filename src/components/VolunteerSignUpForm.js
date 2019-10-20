@@ -114,7 +114,9 @@ function VolunteerSignUpForm({errors, touched}) {
             />
             No
           </div>
-        <button type="submit">Sign Up</button>
+        <div>
+          <button type="submit">Sign Up</button>
+        </div>
       </Form>
     </div>
   );

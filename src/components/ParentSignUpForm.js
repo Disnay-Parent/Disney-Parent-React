@@ -80,7 +80,9 @@ function ParentSignUpForm({errors, touched}) {
               placeholder="Emergency phone number"
             />
         </div>
-        <button type="submit">Sign Up</button>
+        <div>
+          <button type="submit">Sign Up</button>
+        </div>
       </Form>
     </div>
   );
