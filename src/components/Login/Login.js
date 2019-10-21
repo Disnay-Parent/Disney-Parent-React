@@ -1,12 +1,41 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import {withFormik, Form, Field} from 'formik';
 import * as Yup from 'yup';
 // import {axiosWithAuth} from '../utils/axiosWithAuth';
 
-function Login() {
+const Login = (props) => {
+
+  //should be able to uncomment and should work once we have the api to put in the axios post method
+
+  // const [credentials, setCredentials] = useState({});
+
+  // useEffect(() => {
+  //   const login = e => {
+  //     e.preventDefault();
+  //     axiosWithAuth.post("")
+  //       .then(res => {
+  //         console.log(res.data.token)
+  //         localStorage.setItem("token", res.data.token);
+  //         this.props.history.push("/")
+  //       })
+  //       .catch(err => console.log("Login Page Erroring", err))
+  //   }
+  // }, [])
+
+  // const loginChangeHandler = (e) => {
+  //   // Need React II's help here
+  //   setCredentials({
+  //     ...credentials,
+  //     [e.target.name]: e.target.value
+  //   })
+  // }
+
+  //add onChange value of  onChange={loginChangeHandler} to each input value to make form work
+  //also add {this.login} to the onSumbit on the form
+
   return (
     <div>
-      <Form>
+      <Form onSumbit="">
         <div>
           Are you a Parent or Volunteer?
           <label>Parent</label>
@@ -14,13 +43,15 @@ function Login() {
             name="parentOrVolunteer"
             type="radio"
             value="parent"
+
+          
           />
           <label>Volunteer</label>
           <Field
             name="parentOrVolunteer"
             type="radio"
             value="volunteer"
-          />
+            />
         </div>
         <div>
           <label>Username:</label>
@@ -28,7 +59,7 @@ function Login() {
             name="username"
             type="text"
             placeholder="username"
-          />
+            />
         </div>
         <div>
           <label>Password:</label>
@@ -36,7 +67,7 @@ function Login() {
             name="password"
             type="password"
             placeholder="password"
-          />
+            />
         </div>
         <div>
           <button type="submit">Login</button>
@@ -68,9 +99,7 @@ const LoginFormikForm = withFormik({
   }),
   // End Validation Schema
 
-  handleSubmit() {
-      // Need React II's help here
-    },
+ 
   
 })(Login)
 

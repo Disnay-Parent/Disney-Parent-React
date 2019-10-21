@@ -1,13 +1,19 @@
-export const initialState = {
+import {TEST} from "../actions/index";
+
+
+const initialState = {
     user: {username: "user placeholder"},
-    userlist: {}
+    userlist: {},
+    error: "", 
+    isFetching: false
   };
 
-export const reducer = (state, action) => {
+export const reducer = (state = initialState, action) => {
     switch(action.type){
         case "TEST" :
             return {
                 ...state,
+
                 user: action.payload
             }
         default :

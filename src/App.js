@@ -3,13 +3,13 @@ import './App.css';
 import Home from './components/Home';
 
 import { StateProvider } from "./state/state";
-import { reducer, initialState } from "./reducers/reducers";
+import { reducer } from "./reducers/reducers";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <StateProvider initialState={initialState} reducer={reducer}>
+        <StateProvider reducer={reducer}>
           <Home />
         </StateProvider>
       </header>

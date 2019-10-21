@@ -6,6 +6,8 @@ import {axiosWithAuth} from '../utils/axiosWithAuth';
 
 function Post({errors, touched}) {
 
+  //component possibly needs to be renamed to reflect the component hat the data is being manipulated for...
+
   // Retrieve Parent's name
   function componentDidMount({setState, state}) {
     fetch(axiosWithAuth())
