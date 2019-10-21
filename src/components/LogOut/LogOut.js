@@ -1,13 +1,18 @@
 import React from "react";
-import Login from "../Login/Login";
-import SignUp from "../SignUp/SignUp"
+import {Route, Link} from 'react-router-dom';
+
+import Home from "../Home";
 
 const LogOut = () => {
 
     return (
         <div>
-            <Login />
-            <SignUp />
+
+        <Link exact to="/">
+             <h3>Home</h3>
+        </Link> 
+      
+        <Route exact path="/" component={Home} />
         </div>
     )
 }
