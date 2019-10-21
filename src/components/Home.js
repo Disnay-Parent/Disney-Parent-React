@@ -1,9 +1,9 @@
 import React from 'react';
 import {Route, Link} from 'react-router-dom';
-import ParentFormikSignUp from './ParentSignUpForm';
-import VolunteerFormikSignUp from './VolunteerSignUpForm';
+import ParentFormikSignUp from './SignUp/ParentSignUpForm';
+import VolunteerFormikSignUp from './SignUp/VolunteerSignUpForm';
 
-function ParentOrVolunteer() {
+function Home() {
   return (
     <div>
       {/* Select either Parent and Volunteer to Route to 
@@ -23,4 +23,4 @@ function ParentOrVolunteer() {
   );
 }
 
-export default ParentOrVolunteer;
+export default Home;

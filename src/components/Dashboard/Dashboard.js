@@ -1,8 +1,15 @@
 import React from "react";
+import Parent from "../Parent/Parent";
+import Volunteer from "../Volunteer/Volunteer";
+import Child from "../Child/Child";
 
 const Dashboard = () => {
   return (
-    <div> </div>
+    <div> 
+        <Parent />
+        <Volunteer />
+        <Child />
+    </div>
   );
 };
 
