@@ -3,8 +3,11 @@ import {Route, Link} from 'react-router-dom';
 import ParentFormikSignUp from './SignUp/ParentSignUpForm';
 import VolunteerFormikSignUp from './SignUp/VolunteerSignUpForm';
 import Login from "./Login/Login";
+import PrivateRoute from "../utils/PrivateRoute";
+import Dashboard from "../components/Dashboard/Dashboard";
 
-function Home() {
+
+const  Home = () => {
   return (
     <div>
       {/* Select either Parent and Volunteer to Route to 
@@ -29,6 +32,7 @@ function Home() {
       <Route path="/parent-signup-form" component={ParentFormikSignUp} />
       <Route path="/volunteer-signup-form" component={VolunteerFormikSignUp} />
       <Route path="/login" component={Login} />
+      <PrivateRoute exact path="/dashboard" component={Dashboard} />
 
     </div>
   );
