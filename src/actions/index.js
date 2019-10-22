@@ -2,6 +2,7 @@ import axios from "axios";
 import {axiosWithAuth} from "../utils/axiosWithAuth"
 
 export const TEST = "TEST";
+export const DELETE_MSG= "DELETE_MSG"
 
 export const testAction = () => {
     return(dispatch) => {
@@ -22,7 +23,7 @@ export const testAction = () => {
 
 }
 
-export const DELETE_MSG = (id) => dispatch => {
+export const deleteMessage = (id) => dispatch => {
     console.log(`message ${id} is being deleted`)
 
     axiosWithAuth
