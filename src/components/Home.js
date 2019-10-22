@@ -23,6 +23,9 @@ const  Home = () => {
       <Link to="/login">
         <h3>Login</h3>
       </Link>
+      <Link to="/dashboard">
+        <h3>Dashboard</h3>
+      </Link>
       
        {/* Need to add functionality to show either the sign up forms or the 
       login functionality, but not show the initial "are you a parent or volunteer once a user 
@@ -31,7 +34,7 @@ const  Home = () => {
 
       <Route path="/parent-signup-form" component={ParentFormikSignUp} />
       <Route path="/volunteer-signup-form" component={VolunteerFormikSignUp} />
-      <Route path="/login" component={Login} />
+      <Route exact path="/login" component={Login} />
       <PrivateRoute exact path="/dashboard" component={Dashboard} />
 
     </div>

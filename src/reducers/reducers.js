@@ -1,4 +1,8 @@
-import {TEST} from "../actions/index";
+import {LOGIN, 
+LOGIN_SUCCESS,
+LOGIN_FAIL
+
+} from "../actions/index";
 
 
 const initialState = {
@@ -10,7 +14,7 @@ const initialState = {
 
 export const reducer = (state = initialState, action) => {
     switch(action.type){
-        case "TEST" :
+        case "LOGIN" :
             return {
                 ...state,
 
