@@ -1,24 +1,21 @@
-import {LOGIN, 
-LOGIN_SUCCESS,
-LOGIN_FAIL
+import {TEST, DELETE_MSG} from "../actions/index"
 
-} from "../actions/index";
-
-
-const initialState = {
+export const initialState = {
     user: {username: "user placeholder"},
-    userlist: {},
-    error: "", 
-    isFetching: false
+    userlist: {}
   };
 
-export const reducer = (state = initialState, action) => {
+export const reducer = (state, action) => {
     switch(action.type){
-        case "LOGIN" :
+        case TEST :
             return {
                 ...state,
-
                 user: action.payload
+            }
+        case DELETE_MSG :
+            return {
+                ...state,
+                user: action.payload //replacing current state with the state that's deleted with message
             }
         default :
             return state
@@ -29,19 +26,3 @@ export const reducer = (state = initialState, action) => {
 // import { useStateValue } from './state';
 // then use 
 // const [{ user, userlist }, dispatch] = useStateValue();
-
-// examples: <button onClick={() => dispatch({type: "BUTTON"})}>test</button>
-
-//   const [{ user, userlist }, dispatch] = useStateValue();
-//   console.log(user);
-//   useEffect(() => {
-//     axiosWithAuth()
-//       .get("/smurfs")
-//       .then(res => {
-//         console.log(res);
-//         dispatch({
-//           type: "TEST",
-//           payload: res.data
-//         });
-//       });
-//   }, []);

@@ -6,7 +6,7 @@ export const axiosWithAuth = () => {
     //replace the local host api with the correct api from Elan
 
     return axios.create({
-        baseURL: "http://localhost:5000/api",
+        baseURL: "http://localhost:5000",
         headers: {
             Authorization: token
         }

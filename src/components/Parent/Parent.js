@@ -1,8 +1,16 @@
-import React from "react";
+import React, {useState} from 'react'
+import { userInfo } from "os";
 
-const Parent = () => {
+const Parent = (props) => {
+
+  const { user, setUser}= useState({props.user});
   return (
-    <div> </div>
+    <div> 
+      <ParentCard />
+      <ChildForm />
+      <RecentPostForm />
+      <RecentMessageForm />
+    </div>
   );
 };
 
