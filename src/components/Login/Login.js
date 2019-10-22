@@ -35,7 +35,7 @@ const Login = (props) => {
 
   return (
     <div>
-      <Form onSumbit="">
+      <Form onSubmit="">
         <div>
           Are you a Parent or Volunteer?
           <label>Parent</label>
