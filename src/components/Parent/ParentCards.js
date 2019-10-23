@@ -1,11 +1,10 @@
 import React from 'react';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import styled from 'styled-components';
 import {connect} from "react-redux"
+import { fetchLoggedUser } from "../../actions/index";
 
 function ParentCard(props) {
-
-    const [parent, setParent] = useState(props.parent);
 
     const AccountTitle = styled.div`
         display: flex;
@@ -51,21 +50,24 @@ const AccountSubHeading = styled.div`
     background: #ececdf;
 `;
 
+    useEffect(() => {
+      props.fetchLoggedUser();
+    }, []);
 
     return (
     <AccountData>
         <AccountTitle><h2>Account Details</h2></AccountTitle>
-        <AccountHeading><h2>{parent.firstName} {parent.lastName}</h2></AccountHeading>
+        <AccountHeading><h2>{props.parent.firstName} {props.parent.lastName}</h2></AccountHeading>
         <AccountSection><AccountSubHeading>Username</AccountSubHeading>
-            <Data>{parent.username}</Data></AccountSection>
+            <Data>{props.parent.username}</Data></AccountSection>
         <AccountSection><AccountSubHeading>Email</AccountSubHeading>
-            <Data>{parent.email}</Data></AccountSection>
+            <Data>{props.parent.email}</Data></AccountSection>
         <AccountSection><AccountSubHeading>DOB</AccountSubHeading>
-            <Data>{parent.DOB}</Data></AccountSection>
+            <Data>{props.parent.DOB}</Data></AccountSection>
         <AccountSection><AccountSubHeading>Phone Number</AccountSubHeading>
-            <Data>{parent.phoneNum}</Data></AccountSection>
+            <Data>{props.parent.phoneNum}</Data></AccountSection>
         <AccountSection><AccountSubHeading>Emergency Phone</AccountSubHeading>
-            <Data>{parent.emergencyPhone}</Data></AccountSection>
+            <Data>{props.parent.emergencyPhone}</Data></AccountSection>
     </AccountData>
     );
 }
@@ -76,6 +78,6 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, {})(ParentCard)
+export default connect(mapStateToProps, {fetchLoggedUser})(ParentCard)
 
 // Nathan Loveless - author of this component

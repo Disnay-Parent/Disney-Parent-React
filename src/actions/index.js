@@ -2,9 +2,12 @@ import {axiosWithAuth} from "../utils/axiosWithAuth"
 
 export const TEST = "TEST";
 export const DELETE_MSG= "DELETE_MSG";
-export const LOGIN_START = "LOGIN";
+export const LOGIN_START = "LOGIN_START";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAIL = "LOGIN_FAIL";
+export const FETCH_LOGGED_USER_START = "FETCH_LOGGED_USER_START";
+export const FETCH_LOGGED_USER_SUCCESS = "FETCH_LOGGED_USER_SUCCESS";
+export const FETCH_LOGGED_USER_FAIL = "FETCH_LOGGED_USER_FAIL";
 export const LOGOUT = "LOGOUT"
 
 export const userLogin = (credentials) => (dispatch) => {
@@ -18,8 +21,23 @@ export const userLogin = (credentials) => (dispatch) => {
             dispatch({ type: LOGIN_SUCCESS, payload: res.data });
           })
           .catch(err => {
-            console.log("test action", err);
+            console.log(err);
             dispatch({ type: LOGIN_FAIL, payload: err });
+          });
+    }
+
+    export const fetchLoggedUser = () => (dispatch) => {
+    console.log("fetchLoggedUser in actions")
+        dispatch({type: LOGIN_START})
+        axiosWithAuth()
+          .get("/users/logged")
+          .then(res => {
+            console.log(res.data);
+            dispatch({ type: FETCH_LOGGED_USER_SUCCESS, payload: res.data });
+          })
+          .catch(err => {
+            console.log(err);
+            dispatch({ type: FETCH_LOGGED_USER_FAIL, payload: err });
           });
     }
 

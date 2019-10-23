@@ -29,7 +29,7 @@ function ParentSignUpForm(props) {
                     console.log(res.data)
 
                     localStorage.setItem('token', res.data.token);
-                    props.history.location.push('/');
+                    props.history.push('/');
                 })
                 .catch(err => console.log(err));
     }
@@ -50,7 +50,7 @@ function ParentSignUpForm(props) {
         <div>
         <input 
               name="type"
-              type="string"
+              type="text"
               placeholder="parent"
               value={credentials.type}
               onChange={signUpChangeHandler}
