@@ -29,10 +29,9 @@ function Post({errors, touched}) {
   }
 
   return (
-    // Get info from user posting and include link to profile
     <div>
       <div>
-        Name: <Route path="/parent/:id" component={componentDidMount}/>
+        Name: <Route path="/api/users/parent/:id" component={componentDidMount}/>
       </div>
       <Form>
         <div>
@@ -104,6 +103,8 @@ const PostFormikForm = withFormik({
 
   handleSubmit(values, {resetForm, setSubmitting}) {
     axiosWithAuth()
+    // Need assistance from React II here
+    // Not sure where to POST the request
         .post('/volunteer', values)
         .then(res => {
           console.log(res);

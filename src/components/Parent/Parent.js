@@ -1,5 +1,5 @@
-import React from 'react';
-import {useState} from 'react';
+import React, {useState} from 'react';
+// import {useState} from 'react';
 import ParentCard from '../Parent/ParentCards';
 import Child from '../Child/Child';
 import AcceptedRequestsCard from '../Statistics/AcceptedRequestsCard';
@@ -13,7 +13,7 @@ const MainContainer = styled.div`
     display: flex;
     flex-flow: column;
     border-radius: 15px;
-  `;
+`;
 
 const AccountMainContainer = styled.div`
     widthvw: 98%;
@@ -22,7 +22,7 @@ const AccountMainContainer = styled.div`
     background: lightblue;
     display: flex;
     border-radius: 15px;
-  `;
+`;
 
   const AccountContainer = styled.div`
     width: 20%;
@@ -31,7 +31,7 @@ const AccountMainContainer = styled.div`
     margin-right: 10px;
     background: #f0f0db;
     border-radius: 15px;
-  `;
+`;
 
   const ChildContainer = styled.div`
     width: 90%;
@@ -95,33 +95,33 @@ export default function Parent(props) {
 
     return (
         <div>
-        <Nav />
-    <MainContainer>
-        <AccountMainContainer>
-            <AccountContainer>
-                <ParentCard parent={parent} />
-            </AccountContainer>
-            <ChildContainer>
-                <ChildTitle><h2>Children Details</h2></ChildTitle>
-                <Child child={parent.children} />
-            </ChildContainer>        
-        </AccountMainContainer>
-        <StatisticsMainContainer>
-        <StatisticsTitle><h2>Current Account Activity</h2></StatisticsTitle>
-            <StatisticsCards>
-                <StatisticsContainer>
-                    <AcceptedRequestsCard />
-                </StatisticsContainer>
-                <StatisticsContainer>
-                    <RecentRequestsCard />
-                </StatisticsContainer>
-                <StatisticsContainer>
-                    <RecentMessagesCard />
-                </StatisticsContainer>
-            </StatisticsCards>
-        </StatisticsMainContainer>
-    </MainContainer>
-    </div>
+            <Nav />
+            <MainContainer>
+                <AccountMainContainer>
+                    <AccountContainer>
+                        <ParentCard parent={parent} />
+                    </AccountContainer>
+                    <ChildContainer>
+                        <ChildTitle><h2>Children Details</h2></ChildTitle>
+                        <Child child={parent.children} />
+                    </ChildContainer>        
+                </AccountMainContainer>
+                <StatisticsMainContainer>
+                    <StatisticsTitle><h2>Current Account Activity</h2></StatisticsTitle>
+                    <StatisticsCards>
+                        <StatisticsContainer>
+                            <AcceptedRequestsCard />
+                        </StatisticsContainer>
+                        <StatisticsContainer>
+                            <RecentRequestsCard />
+                        </StatisticsContainer>
+                        <StatisticsContainer>
+                            <RecentMessagesCard />
+                        </StatisticsContainer>
+                    </StatisticsCards>
+                </StatisticsMainContainer>
+            </MainContainer>
+        </div>
     );
 }
 
