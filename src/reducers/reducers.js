@@ -1,4 +1,4 @@
-import {TEST, DELETE_MSG} from "../actions/index"
+import {TEST, DELETE_MSG, LOGOUT} from "../actions/index"
 
 export const initialState = {
     user: {username: "user placeholder"},
@@ -16,6 +16,11 @@ export const reducer = (state, action) => {
             return {
                 ...state,
                 user: action.payload //replacing current state with the state that's deleted with message
+            }
+        case LOGOUT :
+            return {
+                ...state,
+                user: ""
             }
         default :
             return state

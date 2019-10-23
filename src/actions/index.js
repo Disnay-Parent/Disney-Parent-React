@@ -6,6 +6,7 @@ export const DELETE_MSG= "DELETE_MSG";
 export const LOGIN = "LOGIN";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAIL = "LOGIN_FAIL";
+export const LOGOUT = "LOGOUT"
 
 export const login = () => {
     return(dispatch) => {
@@ -36,4 +37,10 @@ export const deleteMessage = (id) => dispatch => {
             dispatch({type: DELETE_MSG, payload: res.data}) //the message is deleted on the server but now we update our state to be the same as the server's
         })
         .catch(err => console.log(err))
+}
+
+export const logOut = (id) => dispatch => {
+    console.log()
+    dispatch({TYPE: LOGOUT})
+    
 }

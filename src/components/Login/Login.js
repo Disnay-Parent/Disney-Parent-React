@@ -10,14 +10,15 @@ const Login = (props) => {
   const [credentials, setCredentials] = useState({});
 
   
-  const login = e => {
+  const login = (e) => {
     e.preventDefault();
     axiosWithAuth().post('/auth/login', credentials)
             .then(res => {
                 console.log(res.data)
 
                 localStorage.setItem('token', res.data.token);
-                props.history.location.push('/');
+                console.log(props.history.location)
+                props.history.push('/dashboard');
             })
             .catch(err => console.log(err));
 }

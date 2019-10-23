@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {logOut} from "../../actions/index";
 import {
     Collapse,
     Navbar,
@@ -30,6 +31,10 @@ const Navigation = (props) => {
             <NavItem>
               <NavLink href="/login/">Login</NavLink>
             </NavItem>
+            <NavItem>
+            <NavLink href="/logout/" onClick={logOut} >
+                  LogOut </NavLink>
+            </NavItem>
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
                 Options
@@ -43,7 +48,6 @@ const Navigation = (props) => {
                 </DropdownItem>
                 <DropdownItem divider />
                 <DropdownItem>
-                  LogOut
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>

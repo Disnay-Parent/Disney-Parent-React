@@ -23,9 +23,9 @@ const  Home = () => {
       <Link to="/login">
         <h3>Login</h3>
       </Link>
-      <Link to="/dashboard">
+      {/* <Link to="/dashboard">
         <h3>Dashboard</h3>
-      </Link>
+      </Link> */}
       
        {/* Need to add functionality to show either the sign up forms or the 
       login functionality, but not show the initial "are you a parent or volunteer once a user 
