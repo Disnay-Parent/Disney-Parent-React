@@ -3,13 +3,14 @@ import { userInfo } from "os";
 
 const Parent = (props) => {
 
-  const { user, setUser}= useState({props.user});
+  const [user, setUser] = useState();
   return (
     <div> 
-      <ParentCard />
+      {/* <ParentCard />
       <ChildForm />
       <RecentPostForm />
-      <RecentMessageForm />
+      <RecentMessageForm /> */}
+      
     </div>
   );
 };

@@ -54,12 +54,12 @@ function VolunteerSignUpForm({errors, touched}) {
             />
         </div>
         <div>
-          <label>Age:</label>
-          {touched.age && errors.age && <p>{errors.age}</p>}
+          <label>DOB:</label>
+          {touched.DOB && errors.DOB && <p>{errors.DOB}</p>}
             <Field 
-              name="age"
+              name="DOB"
               type="text"
-              placeholder="age"
+              placeholder="Age"
             />
         </div>
         <div>
@@ -124,7 +124,7 @@ function VolunteerSignUpForm({errors, touched}) {
 
 const VolunteerFormikSignUp = withFormik({
   mapPropsToValues({username, email, password, name, 
-                    lastName, age, phoneNum, avgPerChild,
+                    lastName, DOB, phoneNum, avgPerChild,
                     negotiable, cprCertified}) {
     return {
       username: username || "",
@@ -132,7 +132,7 @@ const VolunteerFormikSignUp = withFormik({
       password: password || "",
       name: name || "",
       lastName: lastName || "",
-      age: age || "",
+      DOB: DOB || "",
       phoneNum: phoneNum || "",
       avgPerChild: avgPerChild || "",
       negotiable: negotiable || "No",
@@ -181,7 +181,7 @@ const VolunteerFormikSignUp = withFormik({
       setErrors({email: "That email is already taken"});
     } else {
       axiosWithAuth()
-        .post('/volunteer', values)
+        .post('/auth/register', values)
         .then(res => {
           console.log(res);
           resetForm();

@@ -19,6 +19,5 @@ function App() {
   );
 }
 
-//update to revert from chatkit
 
 export default App;

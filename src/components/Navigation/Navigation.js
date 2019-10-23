@@ -43,7 +43,7 @@ const Navigation = (props) => {
                 </DropdownItem>
                 <DropdownItem divider />
                 <DropdownItem>
-                  Reset
+                  LogOut
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
