@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-// import {useState} from 'react';
 import ParentCard from '../Parent/ParentCards';
 import Child from '../Child/Child';
 import AcceptedRequestsCard from '../Statistics/AcceptedRequestsCard';
@@ -91,8 +90,6 @@ const StatisticsTitle = styled.div`
 `;
 
 export default function Parent(props) {
-    const [parent, setParent] = useState(props.user);
-
     return (
         <div>
         <Nav />
@@ -101,8 +98,8 @@ export default function Parent(props) {
             <AccountContainer>
                 <ParentCard />
             </AccountContainer>
-            {/* <ChildContainer>
-                <ChildTitle><h2>Children Details</h2></ChildTitle>
+            {/* <ChildContainer>                    
+                <ChildTitle><h2>Children Details</h2></ChildTitle>  //need to make a getChild request
                 <Child child={parent.children} />
             </ChildContainer>         */}
         </AccountMainContainer>
