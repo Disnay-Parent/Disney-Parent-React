@@ -1,106 +1,90 @@
-import React, {useState, useEffect} from 'react'
-import {withFormik, Form, Field} from 'formik';
-import * as Yup from 'yup';
-// import {axiosWithAuth} from '../utils/axiosWithAuth';
+import React, {useState} from 'react'
+// import {withFormik, Form, Field} from 'formik';
+// import * as Yup from 'yup';
+import {axiosWithAuth} from '../../utils/axiosWithAuth';
 
 const Login = (props) => {
 
   //should be able to uncomment and should work once we have the api to put in the axios post method
 
-  // const [credentials, setCredentials] = useState({});
+  const [credentials, setCredentials] = useState({});
 
-  // useEffect(() => {
-  //   const login = e => {
-  //     e.preventDefault();
-  //     axiosWithAuth.post("")
-  //       .then(res => {
-  //         console.log(res.data.token)
-  //         localStorage.setItem("token", res.data.token);
-  //         this.props.history.push("/")
-  //       })
-  //       .catch(err => console.log("Login Page Erroring", err))
-  //   }
-  // }, [])
+  
+  const login = (e) => {
+    e.preventDefault();
+    axiosWithAuth().post('/auth/login', credentials)
+            .then(res => {
+                console.log(res.data)
 
-  // const loginChangeHandler = (e) => {
-  //   // Need React II's help here
-  //   setCredentials({
-  //     ...credentials,
-  //     [e.target.name]: e.target.value
-  //   })
-  // }
+                localStorage.setItem('token', res.data.token);
+                console.log(props.history.location)
+                props.history.push('/dashboard');
+            })
+            .catch(err => console.log(err));
+}
 
-  //add onChange value of  onChange={loginChangeHandler} to each input value to make form work
-  //also add {this.login} to the onSumbit on the form
+const loginChangeHandler = event => {
 
+    setCredentials({
+        ...credentials,
+         [event.target.name]: event.target.value 
+        });
+}
+  
+  console.log(credentials)
   return (
     <div>
-      <Form onSubmit="">
-        <div>
-          Are you a Parent or Volunteer?
-          <label>Parent</label>
-          <Field 
-            name="parentOrVolunteer"
-            type="radio"
-            value="parent"
-
-          
-          />
-          <label>Volunteer</label>
-          <Field
-            name="parentOrVolunteer"
-            type="radio"
-            value="volunteer"
-            />
-        </div>
+      <form onSubmit={login}>
         <div>
           <label>Username:</label>
-          <Field 
+          <input 
             name="username"
             type="text"
             placeholder="username"
+            onChange={loginChangeHandler}
             />
         </div>
         <div>
           <label>Password:</label>
-          <Field
+          <input
             name="password"
             type="password"
             placeholder="password"
+            onChange={loginChangeHandler}
             />
         </div>
         <div>
           <button type="submit">Login</button>
         </div>
-      </Form>
+      </form>
     </div>
   );
 }
 
-const LoginFormikForm = withFormik({
-  mapPropsToValues({parentOrVolunteer, username, password}) {
-    return {
-      parentOrVolunteer: parentOrVolunteer || "",
-      username: username || "",
-      password: password || ""
-    };
-  },
+// const LoginFormikForm = withFormik({
+//   mapPropsToValues({username, password}) {
+//     return {
+     
+//       username: username || "",
+//       password: password || ""
+//     };
+//   },
 
-  // Validation Schema
-  validationSchema: Yup.object().shape({
-    parentOrVolunteer: Yup.string()
-      .required("Must select either Parent or Volunteer"),
-    username: Yup.string()
-      .min(6, "Username must have at least 6 characters")
-      .required("Username is required"),
-    password: Yup.string()
-      .min(6, "Password must have at least 6 characters")
-      .required("Password is reuired"),
-  }),
-  // End Validation Schema
+//   // Validation Schema
+//   validationSchema: Yup.object().shape({
+//     parentOrVolunteer: Yup.string()
+//       .required("Must select either Parent or Volunteer"),
+//     username: Yup.string()
+//       .min(6, "Username must have at least 6 characters")
+//       .required("Username is required"),
+//     password: Yup.string()
+//       .min(6, "Password must have at least 6 characters")
+//       .required("Password is reuired"),
+//   }),
+//   // End Validation Schema
 
  
   
-})(Login)
+// })(Login)
 
-export default LoginFormikForm;
+export default Login;
