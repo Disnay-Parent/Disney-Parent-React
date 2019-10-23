@@ -1,15 +1,18 @@
 import React, {useState} from 'react'
-import { userInfo } from "os";
+import ParentCard from './ParentCards'
+import Child from "../Child/Child"
 
 const Parent = (props) => {
 
-  const { user, setUser}= useState({props.user});
+  const { user, setUser}= useState({});
+  setUser(props.user);
+  
   return (
     <div> 
       <ParentCard />
-      <ChildForm />
-      <RecentPostForm />
-      <RecentMessageForm />
+      <Child />
+      {/* <RecentPostForm />
+      <RecentMessageForm /> */}
     </div>
   );
 };
