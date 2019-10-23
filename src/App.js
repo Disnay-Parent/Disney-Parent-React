@@ -17,7 +17,7 @@ function App() {
         <StateProvider reducer={reducer}>
           <Home /> 
         </StateProvider>
-        {/* <Parent user={parent} /> */}
+        {/* <Parent user={parent} />*/}
         <Volunteer user={volunteer} />
       </header>
     </div>
