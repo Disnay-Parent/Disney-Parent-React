@@ -18,7 +18,7 @@ function App() {
           <Home /> 
         </StateProvider>
         {/* <Parent user={parent} /> */}
-        <Volunteer user={volunteer} />
+        {/* <Volunteer user={volunteer} /> */}
       </header>
     </div>
   );
