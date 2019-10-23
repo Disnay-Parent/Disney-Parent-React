@@ -2,23 +2,27 @@ import React from 'react';
 import './App.css';
 import Home from './components/Home';
 
-import { StateProvider } from "./state/state";
+// import { StateProvider } from "./state/state";
 import { reducer } from "./reducers/reducers";
+import { createStore, applyMiddleware } from "redux";
+import { Provider } from "react-redux";
+import thunk from "redux-thunk"
 
 import Volunteer from "./components/Volunteer/Volunteer";
 import Parent from "./components/Parent/Parent";
-import VolunteerCard from './components/Volunteer/VolunteerCard';
 import { volunteer, parent } from './components/DataTest';
+
+const store = createStore(reducer, applyMiddleware(thunk));
 
 function App() {
   return (
     <div className="App">
       <header>
-        <StateProvider reducer={reducer}>
+        <Provider store={store}>
           <Home /> 
-        </StateProvider>
+        </Provider>
         {/* <Parent user={parent} /> */}
-        <Volunteer user={volunteer} />
+        {/* <Volunteer user={volunteer} /> */}
       </header>
     </div>
   );

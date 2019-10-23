@@ -1,20 +1,3 @@
-<<<<<<< HEAD
-import React, {useState} from 'react'
-import ParentCard from './ParentCards'
-import Child from "../Child/Child"
-
-const Parent = (props) => {
-
-  const { user, setUser} = useState({});
-  setUser(props.user);
-
-  return (
-    <div> 
-      <ParentCard />
-      <Child />
-      {/* <RecentPostForm />
-      <RecentMessageForm /> */}
-=======
 import React from 'react';
 import {useState} from 'react';
 import ParentCard from '../Parent/ParentCards';
@@ -116,12 +99,12 @@ export default function Parent(props) {
     <MainContainer>
         <AccountMainContainer>
             <AccountContainer>
-                <ParentCard parent={parent} />
+                <ParentCard />
             </AccountContainer>
-            <ChildContainer>
+            {/* <ChildContainer>
                 <ChildTitle><h2>Children Details</h2></ChildTitle>
                 <Child child={parent.children} />
-            </ChildContainer>        
+            </ChildContainer>         */}
         </AccountMainContainer>
         <StatisticsMainContainer>
         <StatisticsTitle><h2>Current Account Activity</h2></StatisticsTitle>
@@ -138,7 +121,6 @@ export default function Parent(props) {
             </StatisticsCards>
         </StatisticsMainContainer>
     </MainContainer>
->>>>>>> e03daf82785bf20ce4867d3847807bc4f4ab13a0
     </div>
     );
 }

@@ -12,8 +12,8 @@ const Dashboard = () => {
     <div> 
         <Nav />
         <Parent />
-        <Volunteer />
-        <Child />
+        {/* <Volunteer />
+        <Child /> */}
     </div>
   );
 };

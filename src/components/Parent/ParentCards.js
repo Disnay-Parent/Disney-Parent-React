@@ -1,8 +1,9 @@
 import React from 'react';
 import {useState} from 'react';
 import styled from 'styled-components';
+import {connect} from "react-redux"
 
-export default function ParentCard(props) {
+function ParentCard(props) {
 
     const [parent, setParent] = useState(props.parent);
 
@@ -68,5 +69,13 @@ const AccountSubHeading = styled.div`
     </AccountData>
     );
 }
+
+const mapStateToProps = state => {
+  return {
+    parent: state.user
+  };
+};
+
+export default connect(mapStateToProps, {})(ParentCard)
 
 // Nathan Loveless - author of this component
