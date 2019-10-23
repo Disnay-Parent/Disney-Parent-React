@@ -48,11 +48,12 @@ function ParentSignUpForm(props) {
       <h1>Parent Sign Up Form</h1>
       <form onSubmit={parentSignUp}>
         <div>
+        <label>Account Type:</label>
         <input 
               name="type"
               type="string"
               placeholder="parent"
-              value={credentials.type}
+              value="parent"
               onChange={signUpChangeHandler}
             />
         </div>
