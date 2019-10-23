@@ -3,7 +3,10 @@ import {withFormik, Form, Field} from 'formik';
 import * as Yup from 'yup';
 import {axiosWithAuth} from "../../utils/axiosWithAuth";
 
-function VolunteerSignUpForm({errors, touched}) {
+function VolunteerSignUpForm({errors, touched}, props) {
+
+ 
+
   return (
     <div>
       <h1>Volunteer Sign Up Form</h1>
@@ -37,9 +40,9 @@ function VolunteerSignUpForm({errors, touched}) {
         </div>
         <div>
           <label>First Name:</label>
-          {touched.name && errors.name && <p>{errors.name}</p>}
+          {touched.firstName && errors.firstName && <p>{errors.firstName}</p>}
             <Field 
-              name="name"
+              name="firstName"
               type="text"
               placeholder="First Name"
             />
@@ -58,7 +61,7 @@ function VolunteerSignUpForm({errors, touched}) {
           {touched.DOB && errors.DOB && <p>{errors.DOB}</p>}
             <Field 
               name="DOB"
-              type="text"
+              type="date"
               placeholder="Age"
             />
         </div>
@@ -122,15 +125,19 @@ function VolunteerSignUpForm({errors, touched}) {
   );
 }
 
+ const dash = props => {
+   props.history.push("/dashboard");
+ };
+
 const VolunteerFormikSignUp = withFormik({
-  mapPropsToValues({username, email, password, name, 
+  mapPropsToValues({username, email, password, firstName, 
                     lastName, DOB, phoneNum, avgPerChild,
                     negotiable, cprCertified}) {
     return {
       username: username || "",
       email: email || "",
       password: password || "",
-      name: name || "",
+      firstName: firstName || "",
       lastName: lastName || "",
       DOB: DOB || "",
       phoneNum: phoneNum || "",
@@ -151,16 +158,13 @@ const VolunteerFormikSignUp = withFormik({
     password: Yup.string()
       .min(6, "Password must have at least 6 characters")
       .required("Password is reuired"),
-    name: Yup.string()
+    firstName: Yup.string()
       .min(3, "First name must have at least 3 characters")
       .required("First name is required"),
     lastName: Yup.string()
       .min(3, "Last name must have at least 3 characters")
       .required("Last name is required"),
-    age: Yup.number()
-      .positive("Age must be a positive number")
-      .integer("Age must be a whole number")
-      .min(18, "Must be 18 or older")
+    DOB: Yup.date()
       .required("Age is required"),
     phoneNum: Yup.number()
       .min(10, "Phone number must be 10 digits long")
@@ -172,7 +176,7 @@ const VolunteerFormikSignUp = withFormik({
     negotiable: Yup.string()
       .required("Must select 'Yes' or 'No'"),
     cprCertified: Yup.string()
-      .required("Must select 'Yes' or 'No'"),
+      .required("Must select 'Yes' or 'No'")
   }),
   // End Validation Schema
 
@@ -180,12 +184,14 @@ const VolunteerFormikSignUp = withFormik({
     if (values.email === "tiffanyfeldkamp@gmail.com") {
       setErrors({email: "That email is already taken"});
     } else {
+      console.log({ ...values, type: "volunteer" });
       axiosWithAuth()
-        .post('/auth/register', values)
+        .post("/auth/register", { ...values, type: "volunteer" })
         .then(res => {
           console.log(res);
-          resetForm();
           setSubmitting(true);
+          localStorage.setItem("token", res.data.token);
+          dash();
         })
         .catch(err => console.log(err));
         setSubmitting(false);
