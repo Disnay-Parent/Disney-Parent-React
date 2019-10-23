@@ -1,5 +1,4 @@
-import React from 'react';
-import {useState} from 'react';
+import React, {useState} from 'react';
 import ParentCard from '../Parent/ParentCards';
 import Child from '../Child/Child';
 import AcceptedRequestsCard from '../Statistics/AcceptedRequestsCard';
@@ -13,7 +12,7 @@ const MainContainer = styled.div`
     display: flex;
     flex-flow: column;
     border-radius: 15px;
-  `;
+`;
 
 const AccountMainContainer = styled.div`
     widthvw: 98%;
@@ -22,7 +21,7 @@ const AccountMainContainer = styled.div`
     background: lightblue;
     display: flex;
     border-radius: 15px;
-  `;
+`;
 
   const AccountContainer = styled.div`
     width: 20%;
@@ -31,7 +30,7 @@ const AccountMainContainer = styled.div`
     margin-right: 10px;
     background: #f0f0db;
     border-radius: 15px;
-  `;
+`;
 
   const ChildContainer = styled.div`
     width: 90%;
@@ -91,20 +90,18 @@ const StatisticsTitle = styled.div`
 `;
 
 export default function Parent(props) {
-    const [parent, setParent] = useState(props.user);
-
     return (
         <div>
         <Nav />
     <MainContainer>
         <AccountMainContainer>
             <AccountContainer>
-                <ParentCard parent={parent} />
+                <ParentCard />
             </AccountContainer>
-            <ChildContainer>
-                <ChildTitle><h2>Children Details</h2></ChildTitle>
+            {/* <ChildContainer>                    
+                <ChildTitle><h2>Children Details</h2></ChildTitle>  //need to make a getChild request
                 <Child child={parent.children} />
-            </ChildContainer>        
+            </ChildContainer>         */}
         </AccountMainContainer>
         <StatisticsMainContainer>
         <StatisticsTitle><h2>Current Account Activity</h2></StatisticsTitle>

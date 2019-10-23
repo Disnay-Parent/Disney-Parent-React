@@ -1,4 +1,6 @@
 import React, {useState} from 'react'
+import {connect} from "react-redux"
+import {userLogin} from "../../actions/index"
 // import {withFormik, Form, Field} from 'formik';
 // import * as Yup from 'yup';
 import {axiosWithAuth} from '../../utils/axiosWithAuth';
@@ -12,16 +14,10 @@ const Login = (props) => {
   
   const login = (e) => {
     e.preventDefault();
-    axiosWithAuth().post('/auth/login', credentials)
-            .then(res => {
-                console.log(res.data)
-
-                localStorage.setItem('token', res.data.token);
-                console.log(props.history.location)
-                props.history.push('/dashboard');
-            })
-            .catch(err => console.log(err));
-}
+    console.log(credentials)
+    props.userLogin(credentials)
+    props.history.push("/dashboard");
+  };
 
 const loginChangeHandler = event => {
 
@@ -30,8 +26,6 @@ const loginChangeHandler = event => {
          [event.target.name]: event.target.value 
         });
 }
-  
-  console.log(credentials)
   return (
     <div>
       <form onSubmit={login}>
@@ -86,5 +80,9 @@ const loginChangeHandler = event => {
  
   
 // })(Login)
+const mapStateToProps = state => {
+  return {
+  };
+};
 
-export default Login;
+export default connect(mapStateToProps, {userLogin})(Login);

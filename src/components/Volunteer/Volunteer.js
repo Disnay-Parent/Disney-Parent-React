@@ -1,5 +1,4 @@
-import React from 'react';
-import {useState} from 'react';
+import React, {useState} from 'react';
 import VolunteerCard from '../Volunteer/VolunteerCard';
 import AcceptedRequestsCard from '../Statistics/AcceptedRequestsCard';
 import RecentRequestsCard from '../Statistics/RecentRequestsCard';
@@ -12,7 +11,7 @@ const MainContainer = styled.div`
     display: flex;
     flex-flow: column;
     border-radius: 15px;
-  `;
+`;
 
 const AccountMainContainer = styled.div`
     widthvw: 98%;
@@ -21,18 +20,18 @@ const AccountMainContainer = styled.div`
     background: lightblue;
     display: flex;
     border-radius: 15px;
-  `;
+`;
 
-  const AccountContainer = styled.div`
+const AccountContainer = styled.div`
     width: 20%;
     border: 1px solid black;
     box-shadow: 2px 2px grey;
     margin-right: 10px;
     background: #f0f0db;
     border-radius: 15px;
-  `;
+`;
 
-  const AcceptedRequestsContainer = styled.div`
+const AcceptedRequestsContainer = styled.div`
     width: 90%;
     border: 1px solid black;
     box-shadow: 2px 2px grey;
@@ -44,16 +43,16 @@ const AccountMainContainer = styled.div`
     border-radius: 15px;
 `;
 
-const AcceptedRequestsTitle = styled.div`
-    display: flex;
-    flex-flow: column;
-    border-radius: 15px 15px 0px 0px;
-    text-align: center;
-    background: #262626;
-    color: white;
-    margin-bottom: 5px;
-    width: 100%;
-`;
+// const AcceptedRequestsTitle = styled.div`
+//     display: flex;
+//     flex-flow: column;
+//     border-radius: 15px 15px 0px 0px;
+//     text-align: center;
+//     background: #262626;
+//     color: white;
+//     margin-bottom: 5px;
+//     width: 100%;
+// `;
 
 const StatisticsMainContainer = styled.div`
     widthvw: 98%;
@@ -73,6 +72,7 @@ const StatisticsContainer = styled.div`
     border-radius: 15px;
     color: black;
 `;
+
 const StatisticsCards = styled.div`
     display: flex;
     flex-flow: row;
@@ -94,29 +94,29 @@ export default function Volunteer(props) {
 
     return (
         <div>
-        <Nav />
-    <MainContainer>
-        <AccountMainContainer>
-            <AccountContainer>
-                <VolunteerCard volunteer={volunteer} />
-            </AccountContainer>
-            <AcceptedRequestsContainer>
-                {/* <AcceptedRequestsTitle><h2>Children Details</h2></AcceptedRequestsTitle> */}
-                <AcceptedRequestsCard />
-            </AcceptedRequestsContainer>        
-        </AccountMainContainer>
-        <StatisticsMainContainer>
-        <StatisticsTitle><h2>Current Account Activity</h2></StatisticsTitle>
-            <StatisticsCards>
-                <StatisticsContainer>
-                    <RecentRequestsCard />
-                </StatisticsContainer>
-                <StatisticsContainer>
-                    <RecentMessagesCard />
-                </StatisticsContainer>
-            </StatisticsCards>
-        </StatisticsMainContainer>
-    </MainContainer>
-    </div>
+            <Nav />
+            <MainContainer>
+                <AccountMainContainer>
+                    <AccountContainer>
+                        <VolunteerCard volunteer={volunteer} />
+                    </AccountContainer>
+                    <AcceptedRequestsContainer>
+                        {/* <AcceptedRequestsTitle><h2>Children Details</h2></AcceptedRequestsTitle> */}
+                        <AcceptedRequestsCard />
+                    </AcceptedRequestsContainer>        
+                </AccountMainContainer>
+                <StatisticsMainContainer>
+                    <StatisticsTitle><h2>Current Account Activity</h2></StatisticsTitle>
+                    <StatisticsCards>
+                        <StatisticsContainer>
+                            <RecentRequestsCard />
+                        </StatisticsContainer>
+                        <StatisticsContainer>
+                            <RecentMessagesCard />
+                        </StatisticsContainer>
+                    </StatisticsCards>
+                </StatisticsMainContainer>
+            </MainContainer>
+        </div>
     );
 }

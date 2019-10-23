@@ -1,6 +1,6 @@
 import React from 'react';
 import {Route, Link} from 'react-router-dom';
-import ParentFormikSignUp from './SignUp/ParentSignUpForm';
+import ParentSignUp from './SignUp/ParentSignUpForm';
 import VolunteerFormikSignUp from './SignUp/VolunteerSignUpForm';
 import Login from "./Login/Login";
 import PrivateRoute from "../utils/PrivateRoute";
@@ -32,7 +32,7 @@ const  Home = () => {
       clicks on either link, and need to add privateRoutes (react2)" */}
       
 
-      <Route path="/parent-signup-form" component={ParentFormikSignUp} />
+      <Route path="/parent-signup-form" component={ParentSignUp} />
       <Route path="/volunteer-signup-form" component={VolunteerFormikSignUp} />
       <Route exact path="/login" component={Login} />
       <PrivateRoute exact path="/dashboard" component={Dashboard} />

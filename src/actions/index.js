@@ -1,31 +1,45 @@
-import axios from "axios";
 import {axiosWithAuth} from "../utils/axiosWithAuth"
 
 export const TEST = "TEST";
 export const DELETE_MSG= "DELETE_MSG";
-export const LOGIN = "LOGIN";
+export const LOGIN_START = "LOGIN_START";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAIL = "LOGIN_FAIL";
+export const FETCH_LOGGED_USER_START = "FETCH_LOGGED_USER_START";
+export const FETCH_LOGGED_USER_SUCCESS = "FETCH_LOGGED_USER_SUCCESS";
+export const FETCH_LOGGED_USER_FAIL = "FETCH_LOGGED_USER_FAIL";
 export const LOGOUT = "LOGOUT"
 
-export const login = () => {
-    return(dispatch) => {
-        dispatch({type: LOGIN})
-
-        //need to add axios call for reducer actions
-        axiosWithAuth().post("/auth/login", )
-        .then(res => {
+export const userLogin = (credentials) => (dispatch) => {
+    console.log("in login action")
+        dispatch({type: LOGIN_START})
+        axiosWithAuth()
+          .post("/auth/login", credentials)
+          .then(res => {
             console.log(res.data);
-             localStorage.setItem("token", res.data.payload);
-            dispatch({type: LOGIN_SUCCESS, payload: res.data})
-        })
-        .catch(err => {
-            console.log("test action", err);
-            dispatch({type: LOGIN_FAIL, payload: err + "ERROR ON TEST"})
-        })
+            localStorage.setItem("token", res.data.token);
+            dispatch({ type: LOGIN_SUCCESS, payload: res.data });
+          })
+          .catch(err => {
+            console.log(err);
+            dispatch({ type: LOGIN_FAIL, payload: err });
+          });
     }
 
-}
+    export const fetchLoggedUser = () => (dispatch) => {
+    console.log("fetchLoggedUser in actions")
+        dispatch({type: FETCH_LOGGED_USER_START})
+        axiosWithAuth()
+          .get("/users/logged")
+          .then(res => {
+            console.log(res.data);
+            dispatch({ type: FETCH_LOGGED_USER_SUCCESS, payload: res.data });
+          })
+          .catch(err => {
+            console.log(err);
+            dispatch({ type: FETCH_LOGGED_USER_FAIL, payload: err });
+          });
+    }
 
 export const deleteMessage = (id) => dispatch => {
     console.log(`message ${id} is being deleted`)
