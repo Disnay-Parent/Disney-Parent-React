@@ -1,5 +1,4 @@
-import React from 'react';
-import {useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
 import {connect} from "react-redux"
 import { fetchLoggedUser } from "../../actions/index";
@@ -14,41 +13,39 @@ function ParentCard(props) {
         background: #262626;
         color: white;
         margin-bottom: 5px;
-  `;
+    `;
 
     const AccountData = styled.div`
         display: flex;
         flex-flow: column;
         border-radius: 15px;
-        
-  `;
+    `;
 
-  const AccountHeading = styled.div`
-    text-align: center;
-    width: 100%;
-    background: lightgrey;
-    border-bottom: 1px solid grey;
-    border-top: 1px solid grey;
-    color: black;
-    
-`;
+    const AccountHeading = styled.div`
+        text-align: center;
+        width: 100%;
+        background: lightgrey;
+        border-bottom: 1px solid grey;
+        border-top: 1px solid grey;
+        color: black;
+    `;
 
-const AccountSection = styled.div`
-    color: black;
-`;
+    const AccountSection = styled.div`
+        color: black;
+    `;
 
-const Data = styled.span`
-    padding-left: 5px;
-`;
+    const Data = styled.span`
+        padding-left: 5px;
+    `;
 
-const AccountSubHeading = styled.div`
-    margin-top: 10px;
-    font-weight: bold
-    padding: 5px;
-    border-bottom: 1px solid grey;
-    border-top: 1px solid grey;
-    background: #ececdf;
-`;
+    const AccountSubHeading = styled.div`
+        margin-top: 10px;
+        font-weight: bold
+        padding: 5px;
+        border-bottom: 1px solid grey;
+        border-top: 1px solid grey;
+        background: #ececdf;
+    `;
 
     useEffect(() => {
       props.fetchLoggedUser();
