@@ -94,29 +94,29 @@ export default function Volunteer(props) {
 
     return (
         <div>
-        <Nav />
-    <MainContainer>
-        <AccountMainContainer>
-            <AccountContainer>
-                <VolunteerCard volunteer={volunteer} />
-            </AccountContainer>
-            <AcceptedRequestsContainer>
-                {/* <AcceptedRequestsTitle><h2>Children Details</h2></AcceptedRequestsTitle> */}
-                <AcceptedRequestsCard />
-            </AcceptedRequestsContainer>        
-        </AccountMainContainer>
-        <StatisticsMainContainer>
-        <StatisticsTitle><h2>Current Account Activity</h2></StatisticsTitle>
-            <StatisticsCards>
-                <StatisticsContainer>
-                    <RecentRequestsCard />
-                </StatisticsContainer>
-                <StatisticsContainer>
-                    <RecentMessagesCard />
-                </StatisticsContainer>
-            </StatisticsCards>
-        </StatisticsMainContainer>
-    </MainContainer>
-    </div>
+            <Nav />
+            <MainContainer>
+                <AccountMainContainer>
+                    <AccountContainer>
+                        <VolunteerCard volunteer={volunteer} />
+                    </AccountContainer>
+                    <AcceptedRequestsContainer>
+                        {/* <AcceptedRequestsTitle><h2>Children Details</h2></AcceptedRequestsTitle> */}
+                        <AcceptedRequestsCard />
+                    </AcceptedRequestsContainer>        
+                </AccountMainContainer>
+                <StatisticsMainContainer>
+                    <StatisticsTitle><h2>Current Account Activity</h2></StatisticsTitle>
+                    <StatisticsCards>
+                        <StatisticsContainer>
+                            <RecentRequestsCard />
+                        </StatisticsContainer>
+                        <StatisticsContainer>
+                            <RecentMessagesCard />
+                        </StatisticsContainer>
+                    </StatisticsCards>
+                </StatisticsMainContainer>
+            </MainContainer>
+        </div>
     );
 }

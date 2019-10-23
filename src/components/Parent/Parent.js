@@ -95,33 +95,33 @@ export default function Parent(props) {
 
     return (
         <div>
-        <Nav />
-    <MainContainer>
-        <AccountMainContainer>
-            <AccountContainer>
-                <ParentCard parent={parent} />
-            </AccountContainer>
-            <ChildContainer>
-                <ChildTitle><h2>Children Details</h2></ChildTitle>
-                <Child child={parent.children} />
-            </ChildContainer>        
-        </AccountMainContainer>
-        <StatisticsMainContainer>
-        <StatisticsTitle><h2>Current Account Activity</h2></StatisticsTitle>
-            <StatisticsCards>
-                <StatisticsContainer>
-                    <AcceptedRequestsCard />
-                </StatisticsContainer>
-                <StatisticsContainer>
-                    <RecentRequestsCard />
-                </StatisticsContainer>
-                <StatisticsContainer>
-                    <RecentMessagesCard />
-                </StatisticsContainer>
-            </StatisticsCards>
-        </StatisticsMainContainer>
-    </MainContainer>
-    </div>
+            <Nav />
+            <MainContainer>
+                <AccountMainContainer>
+                    <AccountContainer>
+                        <ParentCard parent={parent} />
+                    </AccountContainer>
+                    <ChildContainer>
+                        <ChildTitle><h2>Children Details</h2></ChildTitle>
+                        <Child child={parent.children} />
+                    </ChildContainer>        
+                </AccountMainContainer>
+                <StatisticsMainContainer>
+                    <StatisticsTitle><h2>Current Account Activity</h2></StatisticsTitle>
+                    <StatisticsCards>
+                        <StatisticsContainer>
+                            <AcceptedRequestsCard />
+                        </StatisticsContainer>
+                        <StatisticsContainer>
+                            <RecentRequestsCard />
+                        </StatisticsContainer>
+                        <StatisticsContainer>
+                            <RecentMessagesCard />
+                        </StatisticsContainer>
+                    </StatisticsCards>
+                </StatisticsMainContainer>
+            </MainContainer>
+        </div>
     );
 }
 
