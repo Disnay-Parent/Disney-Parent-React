@@ -4,9 +4,9 @@ import Child from "../Child/Child"
 
 const Parent = (props) => {
 
-  const { user, setUser}= useState({});
+  const { user, setUser} = useState({});
   setUser(props.user);
-  
+
   return (
     <div> 
       <ParentCard />
