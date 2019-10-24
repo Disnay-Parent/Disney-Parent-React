@@ -10,7 +10,7 @@ function VolunteerSignUpForm(props) {
     
   const volunteerSignUp = e => {
      e.preventDefault();
-     axiosWithAuth().post('/auth/register', credentials)
+     axiosWithAuth().post('/auth/register', {...credentials, type: "volunteer"})
              .then(res => {
                  console.log(res.data)
 
@@ -32,19 +32,9 @@ function VolunteerSignUpForm(props) {
     <div>
       <h1>Volunteer Sign Up Form</h1>
       <form onSubmit={volunteerSignUp}>
-      <div>
-      <label>Account Type:</label>
-        <input 
-              name="type"
-              type="string"
-              placeholder="volunteer"
-              value={credentials.type}
-              onChange={signUpChangeHandler}
-            />
-        </div>
+    
         <div>
           <label>Username:</label>
-          {/* {touched.username && errors.username && <p>{errors.username}</p>} */}
             <input 
               name="username"
               type="text"
@@ -55,7 +45,6 @@ function VolunteerSignUpForm(props) {
         </div>
         <div>
           <label>Password:</label>
-          {/* {touched.password && errors.password && <p>{errors.password}</p>} */}
             <input  
               name="password"
               type="password"
@@ -66,7 +55,6 @@ function VolunteerSignUpForm(props) {
         </div>
         <div>
           <label>First Name:</label>
-          {/* {touched.firstName && errors.firstName && <p>{errors.firstName}</p>} */}
             <input 
               name="firstName"
               type="text"
@@ -77,7 +65,6 @@ function VolunteerSignUpForm(props) {
         </div>
         <div>
           <label>Last Name:</label>
-          {/* {touched.lastName && errors.lastName && <p>{errors.lastName}</p>} */}
             <input 
               name="lastName"
               type="text"
@@ -88,7 +75,6 @@ function VolunteerSignUpForm(props) {
         </div>
         <div>
           <label>Email:</label>
-          {/* {touched.email && errors.email && <p>{errors.email}</p>} */}
             <input 
               name="email"
               type="email"
@@ -100,7 +86,6 @@ function VolunteerSignUpForm(props) {
         
         <div>
           <label>Date of Birth:</label>
-          {/* {touched.DOB && errors.DOB && <p>{errors.DOB}</p>} */}
             <input 
               name="DOB"
               type="date"
@@ -111,7 +96,6 @@ function VolunteerSignUpForm(props) {
         </div>
         <div>
           <label>Phone Number:</label>
-          {/* {touched.phoneNum && errors.phoneNum && <p>{errors.phoneNum}</p>} */}
             <input 
               name="phoneNum"
               type="text"
@@ -122,7 +106,6 @@ function VolunteerSignUpForm(props) {
         </div>
         <div>
           <label>Average Cost Per Child:</label>
-          {/* {touched.avgPerChild && errors.avgPerChild && <p>{errors.avgPerChild}</p>} */}
             <input 
               name="avgPerChild"
               type="number"
@@ -133,7 +116,6 @@ function VolunteerSignUpForm(props) {
           </div>
           <div>
             <label>Are you willing to negotiate the cost of service?</label>
-            {/* {touched.negotiable && errors.negotiable && <p>{errors.negotiable}</p>} */}
             <input 
               name="negotiable"
               type="radio"
@@ -151,7 +133,6 @@ function VolunteerSignUpForm(props) {
           </div>
           <div>
             <label>CPR Certified</label>
-            {/* {touched.cprCertified && errors.cprCertified && <p>{errors.cprCertified}</p>} */}
             <input  
               name="cprCertified"
               type="radio"

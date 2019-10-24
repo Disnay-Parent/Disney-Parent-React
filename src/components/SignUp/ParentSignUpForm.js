@@ -10,7 +10,7 @@ function ParentSignUpForm(props) {
     
      const parentSignUp = e => {
         e.preventDefault();
-        axiosWithAuth().post('/auth/register', credentials)
+        axiosWithAuth().post('/auth/register', {...credentials, type: "parent"})
                 .then(res => {
                     console.log(res.data)
 
@@ -34,18 +34,7 @@ function ParentSignUpForm(props) {
       <h1>Parent Sign Up Form</h1>
       <form onSubmit={parentSignUp}>
         <div>
-        <label>Account Type:</label>
-        <input 
-              name="type"
-              type="text"
-              placeholder="parent"
-              value="parent"
-              onChange={signUpChangeHandler}
-            />
-        </div>
-        <div>
           <label>Username:</label>
-          {/* {touched.username && errors.username && <p>{errors.username}</p>} */}
             <input 
               name="username"
               type="text"
@@ -56,7 +45,6 @@ function ParentSignUpForm(props) {
         </div>
         <div>
           <label>Password:</label>
-          {/* {touched.password && errors.password && <p>{errors.password}</p>} */}
             <input  
               name="password"
               type="password"
@@ -67,7 +55,6 @@ function ParentSignUpForm(props) {
         </div>
         <div>
           <label>First Name:</label>
-          {/* {touched.firstName && errors.firstName && <p>{errors.firstName}</p>} */}
             <input 
               name="firstName"
               type="text"
@@ -78,7 +65,6 @@ function ParentSignUpForm(props) {
         </div>
         <div>
           <label>Last Name:</label>
-          {/* {touched.lastName && errors.lastName && <p>{errors.lastName}</p>} */}
             <input 
               name="lastName"
               type="text"
@@ -89,7 +75,6 @@ function ParentSignUpForm(props) {
         </div>
         <div>
           <label>Email:</label>
-          {/* {touched.email && errors.email && <p>{errors.email}</p>} */}
             <input 
               name="email"
               type="email"
@@ -101,7 +86,6 @@ function ParentSignUpForm(props) {
         
         <div>
           <label>Date of Birth:</label>
-          {/* {touched.DOB && errors.DOB && <p>{errors.DOB}</p>} */}
             <input 
               name="DOB"
               type="date"
@@ -112,7 +96,6 @@ function ParentSignUpForm(props) {
         </div>
         <div>
           <label>Phone Number:</label>
-          {/* {touched.phoneNum && errors.phoneNum && <p>{errors.phoneNum}</p>} */}
             <input 
               name="phoneNum"
               type="text"
@@ -123,7 +106,6 @@ function ParentSignUpForm(props) {
         </div> 
         <div>
           <label>Emergency Phone Number:</label>
-          {/* {touched.emergencyPhone && errors.emergencyPhone && <p>{errors.emergencyPhone}</p>} */}
             <input 
               name="emergencyPhone"
               type="text"

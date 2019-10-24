@@ -1,8 +1,4 @@
 import React, {useState} from 'react'
-import {connect} from "react-redux"
-import {userLogin} from "../../actions/index"
-import {withFormik, Form, Field} from 'formik';
-import * as Yup from 'yup';
 import {axiosWithAuth} from '../../utils/axiosWithAuth';
 import {withRouter} from "react-router-dom";
 
@@ -74,33 +70,6 @@ function Login(props) {
     </div>
   );
 }
-
-// const dash = props => {
-//   props.history.push("/dashboard");
-// }
-
-// const LoginFormikForm = withFormik({
-//   mapPropsToValues({username, password}) {
-//     return {
-     
-//       username: username || "",
-//       password: password || ""
-//     };
-//   },
-
-//   // Validation Schema
-//   validationSchema: Yup.object().shape({
-//     parentOrVolunteer: Yup.string()
-//       .required("Must select either Parent or Volunteer"),
-//     username: Yup.string()
-//       .min(6, "Username must have at least 6 characters")
-//       .required("Username is required"),
-//     password: Yup.string()
-//       .min(6, "Password must have at least 6 characters")
-//       .required("Password is reuired"),
-//   }),
-  // End Validation Schema
-
 
 
 
