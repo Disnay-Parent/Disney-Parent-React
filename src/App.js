@@ -27,10 +27,7 @@ function App() {
         <Provider store={store}>
           <Route exact path="/" component={Home} />
           <Route path="/parent-signup-form" component={ParentSignUpForm} />
-          <Route
-            path="/volunteer-signup-form"
-            component={VolunteerSignUpForm}
-          />
+          <Route path="/volunteer-signup-form" component={VolunteerSignUpForm}/>
           <Route exact path="/login" component={Login} />
           <PrivateRoute exact path="/dashboard" component={Dashboard} />
         </Provider>
