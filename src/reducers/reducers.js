@@ -19,7 +19,6 @@ export const initialState = {
 export const reducer = (state = initialState, action) => {
     switch (action.type) {
       case LOGIN_START:
-        console.log("in reducer, login start");
         return {
           ...state,
           isFetching: true
@@ -43,14 +42,12 @@ export const reducer = (state = initialState, action) => {
         };
 
       case FETCH_LOGGED_USER_START:
-        console.log("in reducer, fetch user start");
         return {
           ...state,
           isFetching: true
         };
 
       case FETCH_LOGGED_USER_SUCCESS:
-        console.log(action.payload);
         return {
           ...state,
           user: action.payload,

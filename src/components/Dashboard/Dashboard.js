@@ -9,32 +9,19 @@ import {fetchLoggedUser} from "../../actions/index"
 
 const Dashboard = (props) => {
   
-  // const [userType, setUserType] = useState(props.userType)
+  const [userType, setUserType] = useState(props.userType)
   
-  // useEffect(() => {
-  //   console.log(props.userType)
-  //   props.fetchLoggedUser()
-  // }, [])
-
-
-
-  // let userDashboard
-
-  // if (userType == "parent") {
-  //   userDashboard = <Parent />
-  //   console.log(userDashboard);
-  // } else if (userType == "volunteer") {
-  //   userDashboard = <Volunteer />
-  //   console.log(userDashboard);
-  // }
+  useEffect(() => {
+    props.fetchLoggedUser();
+    console.log(props.userType);
+    setUserType(props.userType);
+  }, [props.userType]);
 
   return (
     <div>
-        <Nav />
-        <Parent />
-        <Child />
-        <Volunteer />
-       
+      <Nav />
+      {userType === "parent" && <Parent/>}
+      {userType === "volunteer" && <Volunteer/>}
     </div>
   );
 };

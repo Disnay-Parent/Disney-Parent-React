@@ -31,8 +31,6 @@ function App() {
           <Route exact path="/login" component={Login} />
           <PrivateRoute exact path="/dashboard" component={Dashboard} />
         </Provider>
-        {/* <Parent user={parent} /> */}
-        {/* <Volunteer user={volunteer} /> */}
       </header>
     </div>
   );

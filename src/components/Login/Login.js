@@ -4,8 +4,6 @@ import {withRouter} from "react-router-dom";
 
 function Login(props) {
 
-  console.log("Login Props:", props)
-
   //should be able to uncomment and should work once we have the api to put in the axios post method
 
   // const [credentials, setCredentials] = useState({});

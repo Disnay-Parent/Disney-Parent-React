@@ -96,10 +96,10 @@ export default function Parent(props) {
             <AccountContainer>
                 <ParentCard />
             </AccountContainer>
-            {/* <ChildContainer>                    
-                <ChildTitle><h2>Children Details</h2></ChildTitle>  //need to make a getChild request
-                <Child child={parent.children} />
-            </ChildContainer>         */}
+            <ChildContainer>                    
+                <ChildTitle><h2>Children Details</h2></ChildTitle>
+                <Child/>
+            </ChildContainer>        
         </AccountMainContainer>
         <StatisticsMainContainer>
         <StatisticsTitle><h2>Current Account Activity</h2></StatisticsTitle>

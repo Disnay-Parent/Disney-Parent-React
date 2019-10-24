@@ -27,12 +27,11 @@ export const userLogin = (credentials) => (dispatch) => {
     }
 
     export const fetchLoggedUser = () => (dispatch) => {
-    console.log("fetchLoggedUser in actions")
+    
         dispatch({type: FETCH_LOGGED_USER_START})
         axiosWithAuth()
           .get("/users/logged")
           .then(res => {
-            console.log(res.data);
             dispatch({ type: FETCH_LOGGED_USER_SUCCESS, payload: res.data });
           })
           .catch(err => {
