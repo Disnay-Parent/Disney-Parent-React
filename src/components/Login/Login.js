@@ -4,8 +4,11 @@ import {userLogin} from "../../actions/index"
 import {withFormik, Form, Field} from 'formik';
 import * as Yup from 'yup';
 import {axiosWithAuth} from '../../utils/axiosWithAuth';
+import {withRouter} from "react-router-dom";
 
 function Login({errors, touched}, props) {
+
+  console.log("Login Props:", props)
 
   //should be able to uncomment and should work once we have the api to put in the axios post method
 
@@ -79,17 +82,17 @@ const LoginFormikForm = withFormik({
   }),
   // End Validation Schema
 
-  handleSubmit(values, {resetForm, setErrors, setSubmitting}) {
-    if (values.email === "tiffanyfeldkamp@gmail.com") {
-      setErrors({email: "That email is already taken"});
-    } else {
+  handleSubmit(values, {resetForm, setErrors, setSubmitting, history}, props) {
+  
       console.log({ ...values});
       axiosWithAuth()
         .post("/auth/login")
         .then(res => {
           console.log(res);
+          console.log("Login Hist:", history)
           setSubmitting(true);
           localStorage.setItem("token", res.data.token);
+          props.history.push("/dashboard")
           dash();
         })
         .catch(err => console.log(err));
@@ -97,10 +100,7 @@ const LoginFormikForm = withFormik({
     }
   }
   
-})(Login)
-const mapStateToProps = state => {
-  return {
-  };
-};
+)(Login)
 
-export default connect(mapStateToProps, {userLogin})(LoginFormikForm);
+
+export default withRouter(LoginFormikForm);
