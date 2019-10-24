@@ -10,14 +10,16 @@ const Children = (props) => {
   const [newChild, setNewChild] = useState({
     id: "",
     name: "",
-    age: "",
-    email: ""
+    DOB: "",
+    allergies: "",
+    special_instructions: "",
+    medical_conditions: ""
   });
 
   useEffect(() => {
     setNewGetChild(false);
     axiosWithAuth()
-      .get("/children")
+      .get("/api/children/user/:id")
       .then(res => {
         console.log("GET", res.data);
         setChild(res.data);
