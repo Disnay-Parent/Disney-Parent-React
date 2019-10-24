@@ -15,7 +15,7 @@ function VolunteerSignUpForm(props) {
                  console.log(res.data)
 
                  localStorage.setItem('token', res.data.token);
-                 props.history.location.push('/login');
+                 props.history.push('/login');
              })
              .catch(err => console.log(err));
  }
