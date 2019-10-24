@@ -55,3 +55,42 @@ export const volunteer = {
   CPR_Certified: 1,
   type: 'volunteer'
 };
+
+
+export const messages = [
+  {
+    post: "I need somebody to watch my children for 1 hour",
+    location: "Magic Kingdom",
+    time: "1:00 pm"
+  },
+
+  {
+    post: "We would like to go to dinner tonight",
+    location: "Swan Hotel and Restaurant",
+    time: "7:00 pm"
+  },
+
+  {
+    post: "I need to get some groceries for our hotel room",
+    location: "Swan Hotel",
+    time: "3:00 pm"
+  },
+
+  {
+    post: "Looking for somebody to watch our children for a few hours, then we can watch your children for the same time",
+    location: "Epcot",
+    time: "12:00 - 3:00 pm"
+  },
+
+  {
+    post: "Husband is sick, can somebody watch children while I take him to the doctor?",
+    location: "All Star Sports Resort",
+    time: "ASAP"
+  },
+
+  {
+    post: "We are leaving the resort to go to a dinner theatre in Orlando, need a babysitter for a couple hours",
+    location: "Carribean Beach Resort",
+    time: "6:00 - 10:00 pm"
+  },
+]

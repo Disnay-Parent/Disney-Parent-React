@@ -13,6 +13,7 @@ import { reducer } from "./reducers/reducers";
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk"
+import Messages from "./Messages/Messages";
 
 
 // import Volunteer from "./components/Volunteer/Volunteer";
@@ -31,6 +32,7 @@ function App() {
           <PublicRoute path="/volunteer-signup-form" component={VolunteerSignUpForm}/>
           <PublicRoute path="/login" component={Login} />
           <PrivateRoute path="/dashboard" component={Dashboard} />
+          <PrivateRoute path="/messages/" component={Messages} />
         </Provider>
       </header>
     </div>

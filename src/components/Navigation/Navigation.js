@@ -1,5 +1,8 @@
 import React, {useState} from 'react';
 import {logOut} from "../../actions/index";
+import Messages from "../../Messages/Messages";
+import { Route } from "react-router-dom";
+import PrivateRoute from "../../utils/PrivateRoute";
 import {
     Collapse,
     Navbar,
@@ -29,9 +32,9 @@ const Navigation = (props) => {
                   <NavItem>
                     <NavLink href="/">Register</NavLink>
                   </NavItem>
-                  <NavItem>
+                  {/*<NavItem>
                     <NavLink href="/messages/">Messages</NavLink>
-                  </NavItem>
+                  </NavItem>*/}
                   <NavItem>
                     <NavLink href="/login/">Login</NavLink>
                   </NavItem>
@@ -63,6 +66,7 @@ const Navigation = (props) => {
               </Collapse>
             </Navbar>
             {/* Add Messaging to Navbar  */}
+            
         </div>
       )
     
