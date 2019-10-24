@@ -23,38 +23,38 @@ const Navigation = (props) => {
     
         return(
           <div>
-            <Navbar color=
-            "light" light expand="md">
-              <NavbarBrand href="/">Disney Parent</NavbarBrand>
+            <Navbar style={{backgroundColor: '#253b57'}} light expand="md">
+              <NavbarBrand style={{color: '#E0E4E9'}} href="/">Disney Parent</NavbarBrand>
               <NavbarToggler onClick={toggle} />
               <Collapse isOpen={isOpen} navbar>
                 <Nav className="ml-auto" navbar>
                   <NavItem>
-                    <NavLink href="/">Register</NavLink>
+                    <NavLink style={{color: '#E0E4E9'}} href="/">Register</NavLink>
                   </NavItem>
                   {/*<NavItem>
                     <NavLink href="/messages/">Messages</NavLink>
                   </NavItem>*/}
                   <NavItem>
-                    <NavLink href="/login/">Login</NavLink>
+                    <NavLink style={{color: '#E0E4E9'}} href="/login/">Login</NavLink>
                   </NavItem>
                   <NavItem>
-                  <NavLink onClick={() => localStorage.clear()} href="/"  >
+                  <NavLink style={{color: '#E0E4E9'}} onClick={() => localStorage.clear()} href="/"  >
                         LogOut </NavLink>
                   </NavItem>
                   <NavItem>
-                  <NavLink href="/messages/" >
+                  <NavLink style={{color: '#E0E4E9'}} href="/messages/"
+                    onMouseOver={{textDecoration: "uppercase", backgroundColor: "#78BEE7"}} >
                         Messages </NavLink>
                   </NavItem>
                   <UncontrolledDropdown nav inNavbar>
-                    <DropdownToggle nav caret>
+                    <DropdownToggle style={{color: '#E0E4E9'}} nav caret>
                       Options
                     </DropdownToggle>
-                    <DropdownMenu right>
-                      <DropdownItem>
+                    <DropdownMenu style={{backgroundColor: '#253b57'}} right>
+                      <DropdownItem style={{color: '#E0E4E9'}}>
                         Option 1
                       </DropdownItem>
-                      <DropdownItem>
+                      <DropdownItem style={{color: '#E0E4E9'}}>
                         Option 2
                       </DropdownItem>
                       <DropdownItem divider />
