@@ -1,7 +1,19 @@
-import React from "react";
+import React, {useState} from "react";
 import { deleteMessage } from "../actions/index"
 
-const MessageCard = (msg) => {
+const MessageCard = (props) => {
+
+  const [message, setmessage] = useState({});
+
+    const getMessage = e => {
+        e.preventDefault();
+        axiosWithAuth().get("/users/logged", parent)
+        .then(res => {
+            console.log(res.data)
+            localStorage.setItem("token", res.data.token)
+        })
+        .catch(err => console.log("getMessage", err))
+    }
 
     return (
       <div>

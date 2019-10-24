@@ -4,7 +4,6 @@ import Child from '../Child/Child';
 import AcceptedRequestsCard from '../Statistics/AcceptedRequestsCard';
 import RecentRequestsCard from '../Statistics/RecentRequestsCard';
 import RecentMessagesCard from '../Statistics/RecentMessagesCard';
-import Nav from '../Navigation/Navigation';
 import styled from 'styled-components';
 
 const MainContainer = styled.div`
@@ -92,7 +91,6 @@ const StatisticsTitle = styled.div`
 export default function Parent(props) {
     return (
         <div>
-        <Nav />
     <MainContainer>
         <AccountMainContainer>
             <AccountContainer>

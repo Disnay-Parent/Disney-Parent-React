@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {withFormik, Form, Field} from 'formik';
 import * as Yup from 'yup';
 import {axiosWithAuth} from "../../utils/axiosWithAuth";
@@ -119,8 +119,8 @@ function ParentSignUpForm({errors, touched}, props) {
   );
 }
 
-const dash = props => {
-  props.history.push("/dashboard");
+const login = props => {
+  props.history.push("/login");
 }
 const ParentFormikSignUp = withFormik({
   mapPropsToValues({username, email, password, firstName,
@@ -179,7 +179,7 @@ const ParentFormikSignUp = withFormik({
         console.log(res);
         setSubmitting(true);
         localStorage.setItem("token", res.data.token);
-        dash();
+        login();
       })
       .catch(err => console.log(err));
       setSubmitting(false);

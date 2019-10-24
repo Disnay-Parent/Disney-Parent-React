@@ -125,8 +125,8 @@ function VolunteerSignUpForm({errors, touched}, props) {
   );
 }
 
- const dash = props => {
-   props.history.push("/dashboard");
+ const login = props => {
+   props.history.push("/login");
  };
 
 const VolunteerFormikSignUp = withFormik({
@@ -191,7 +191,7 @@ const VolunteerFormikSignUp = withFormik({
           console.log(res);
           setSubmitting(true);
           localStorage.setItem("token", res.data.token);
-          dash();
+          login();
         })
         .catch(err => console.log(err));
         setSubmitting(false);
