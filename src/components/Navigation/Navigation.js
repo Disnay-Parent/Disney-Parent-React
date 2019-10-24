@@ -27,13 +27,13 @@ const Navigation = (props) => {
               <Collapse isOpen={isOpen} navbar>
                 <Nav className="ml-auto" navbar>
                   <NavItem>
-                    <NavLink href="/register/">Register</NavLink>
+                    <NavLink href="/">Register</NavLink>
                   </NavItem>
                   <NavItem>
                     <NavLink href="/login/">Login</NavLink>
                   </NavItem>
                   <NavItem>
-                  <NavLink href="/" onClick={logOut} >
+                  <NavLink onClick={() => localStorage.clear()} href="/"  >
                         LogOut </NavLink>
                   </NavItem>
                   <NavItem>

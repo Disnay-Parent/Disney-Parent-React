@@ -3,6 +3,7 @@ import './App.css';
 import Home from './components/Home';
 import { Route } from "react-router-dom";
 import PrivateRoute from "./utils/PrivateRoute"
+import PublicRoute from "./utils/PublicRoute"
 import Dashboard from "./components/Dashboard/Dashboard"
 import ParentSignUpForm from "./components/SignUp/ParentSignUpForm";
 import VolunteerSignUpForm from "./components/SignUp/VolunteerSignUpForm";
@@ -25,11 +26,11 @@ function App() {
     <div className="App">
       <header>
         <Provider store={store}>
-          <Route exact path="/" component={Home} />
-          <Route path="/parent-signup-form" component={ParentSignUpForm} />
-          <Route path="/volunteer-signup-form" component={VolunteerSignUpForm}/>
-          <Route exact path="/login" component={Login} />
-          <PrivateRoute exact path="/dashboard" component={Dashboard} />
+          <PublicRoute exact path="/" component={Home} />
+          <PublicRoute path="/parent-signup-form" component={ParentSignUpForm} />
+          <PublicRoute path="/volunteer-signup-form" component={VolunteerSignUpForm}/>
+          <PublicRoute path="/login" component={Login} />
+          <PrivateRoute path="/dashboard" component={Dashboard} />
         </Provider>
       </header>
     </div>

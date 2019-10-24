@@ -7,13 +7,7 @@ import Home from "../Home";
 
 const LogOut = () => {
 
-const [{user}] = useStateValue();
-
-logOut()
-
 console.log("clicked logout")
-
-
     return (
         <div>
 

@@ -52,8 +52,9 @@ export const deleteMessage = (id) => dispatch => {
         .catch(err => console.log(err))
 }
 
-export const logOut = (id) => dispatch => {
+export const logOut = () => dispatch => {
     console.log()
+    localStorage.remove("token");
     dispatch({TYPE: LOGOUT})
     
 }
