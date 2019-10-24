@@ -30,13 +30,14 @@ export const reducer = (state = initialState, action) => {
         return {
           ...state,
           isFetching: false,
+          user: action.payload,
           err: ""
         };
 
       case LOGIN_FAIL:
         return {
           ...state,
-          user: action.payload,
+          
           isFetching: false,
           error: action.payload.error
         };
