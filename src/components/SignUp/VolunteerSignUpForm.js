@@ -180,22 +180,17 @@ const VolunteerFormikSignUp = withFormik({
   }),
   // End Validation Schema
 
-  handleSubmit(values, {resetForm, setErrors, setSubmitting}) {
-    if (values.email === "tiffanyfeldkamp@gmail.com") {
-      setErrors({email: "That email is already taken"});
-    } else {
-      console.log({ ...values, type: "volunteer" });
-      axiosWithAuth()
-        .post("/auth/register", { ...values, type: "volunteer" })
-        .then(res => {
-          console.log(res);
-          setSubmitting(true);
-          localStorage.setItem("token", res.data.token);
-          dash();
-        })
-        .catch(err => console.log(err));
-        setSubmitting(false);
-    }
+  handleSubmit(values, formikbag) {
+    console.log({ ...values, type: "volunteer" });
+    axiosWithAuth()
+      .post("/auth/register", { ...values, type: "volunteer" })
+      .then(res => {
+        console.log(res);
+        
+        localStorage.setItem("token", res.data.token);
+        formikbag.props.history.push("/dashboard")
+      })
+      .catch(err => console.log(err));
   }
 
 })(VolunteerSignUpForm);

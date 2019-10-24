@@ -71,7 +71,8 @@ function ParentCard(props) {
 
 const mapStateToProps = state => {
   return {
-    parent: state.user
+    parent: state.user,
+    isfetching: state.isfetching
   };
 };
 

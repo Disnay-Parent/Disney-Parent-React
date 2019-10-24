@@ -12,11 +12,11 @@ const Login = (props) => {
   const [credentials, setCredentials] = useState({});
 
   
-  const login = (e) => {
+  const login = async (e) => {
     e.preventDefault();
     console.log(credentials)
-    props.userLogin(credentials)
-    props.history.push("/dashboard");
+    await props.userLogin(credentials)
+    
   };
 
 const loginChangeHandler = event => {

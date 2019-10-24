@@ -18,6 +18,7 @@ export const userLogin = (credentials) => (dispatch) => {
           .then(res => {
             console.log(res.data);
             localStorage.setItem("token", res.data.token);
+            props.history.push("/dashboard");
             dispatch({ type: LOGIN_SUCCESS, payload: res.data });
           })
           .catch(err => {
