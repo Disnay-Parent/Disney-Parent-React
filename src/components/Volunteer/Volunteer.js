@@ -96,7 +96,7 @@ export default function Volunteer(props) {
         <div>
            
                 
-            <VolunteerCard volunteer={volunteer} />
+            <VolunteerCard/>
                    
           
         </div>
