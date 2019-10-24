@@ -1,12 +1,18 @@
 import React from 'react';
 import './App.css';
 import Home from './components/Home';
-
+import { Route } from "react-router-dom";
+import PrivateRoute from "./utils/PrivateRoute"
+import Dashboard from "./components/Dashboard/Dashboard"
+import ParentSignUp from "./components/SignUp/ParentSignUpForm";
+import VolunteerFormikSignUp from "./components/SignUp/VolunteerSignUpForm";
+import Login from "./components/Login/Login";
 // import { StateProvider } from "./state/state";
 import { reducer } from "./reducers/reducers";
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk"
+
 
 // import Volunteer from "./components/Volunteer/Volunteer";
 // import Parent from "./components/Parent/Parent";
@@ -19,7 +25,14 @@ function App() {
     <div className="App">
       <header>
         <Provider store={store}>
-          <Home /> 
+          <Route exact path="/" component={Home} />
+          <Route path="/parent-signup-form" component={ParentSignUp} />
+          <Route
+            path="/volunteer-signup-form"
+            component={VolunteerFormikSignUp}
+          />
+          <Route exact path="/login" component={Login} />
+          <PrivateRoute exact path="/dashboard" component={Dashboard} />
         </Provider>
         {/* <Parent user={parent} /> */}
         {/* <Volunteer user={volunteer} /> */}

@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import Parent from "../Parent/Parent";
 import Volunteer from "../Volunteer/Volunteer";
 import Child from "../Child/Child";
@@ -8,11 +8,28 @@ import {connect} from "react-redux"
 import {fetchLoggedUser} from "../../actions/index"
 
 const Dashboard = (props) => {
-  useEffect(() => {
-    
-  }, [])
+  
+  // const [userType, setUserType] = useState(props.userType)
+  
+  // useEffect(() => {
+  //   console.log(props.userType)
+  //   props.fetchLoggedUser()
+  // }, [])
+
+
+
+  // let userDashboard
+
+  // if (userType == "parent") {
+  //   userDashboard = <Parent />
+  //   console.log(userDashboard);
+  // } else if (userType == "volunteer") {
+  //   userDashboard = <Volunteer />
+  //   console.log(userDashboard);
+  // }
+
   return (
-    <div> 
+    <div>
         <Nav />
         <Parent />
         {/* <Volunteer />
@@ -23,7 +40,8 @@ const Dashboard = (props) => {
 
 const mapStateToProps = state => {
   return {
-
+    userType: state.user.type,
+    isFetching: state.isFetching
   };
 };
 

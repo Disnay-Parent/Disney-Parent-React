@@ -32,10 +32,8 @@ const  Home = () => {
       clicks on either link, and need to add privateRoutes (react2)" */}
       
 
-      <Route path="/parent-signup-form" component={ParentSignUp} />
-      <Route path="/volunteer-signup-form" component={VolunteerFormikSignUp} />
-      <Route exact path="/login" component={Login} />
-      <PrivateRoute exact path="/dashboard" component={Dashboard} />
+      
+      {/* <PrivateRoute exact path="/dashboard" component={Dashboard} /> */}
 
     </div>
   );
