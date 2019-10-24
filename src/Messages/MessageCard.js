@@ -15,6 +15,8 @@ const MessageCard = (props) => {
         .catch(err => console.log("getMessage", err))
     }
 
+    
+
     return (
       <div>
         <h3>{msg.title}</h3> {/* I'm just assuming what the backend properties will be*/}
