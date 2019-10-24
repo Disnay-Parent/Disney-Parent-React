@@ -1,5 +1,11 @@
 import React from "react";
 import {axiosWithAuth} from "../../utils/axiosWithAuth";
+// import styled from 'styled-components';
+
+// const ChildTitle = styled.h3`
+//     margin-bottom: 400px;
+//     padding-top: 10px;
+// `;
 
 const ChildList = (props) => {
 

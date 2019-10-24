@@ -5,6 +5,11 @@ import AcceptedRequestsCard from '../Statistics/AcceptedRequestsCard';
 import RecentRequestsCard from '../Statistics/RecentRequestsCard';
 import RecentMessagesCard from '../Statistics/RecentMessagesCard';
 import styled from 'styled-components';
+import {css} from 'styled-components';
+import MqInit from 'styled-components-media-query';
+
+const bp = {s: 500, l: 800}
+const mq = MqInit({bp})
 
 const MainContainer = styled.div`
     widthvw: 100%;
@@ -20,15 +25,25 @@ const AccountMainContainer = styled.div`
     background: lightblue;
     display: flex;
     border-radius: 15px;
+
+    ${mq(null, 'l')(css`
+        width: 100%;
+        display: flex;
+        flex-flow: column;
+        `)}
 `;
 
   const AccountContainer = styled.div`
-    width: 20%;
+    width: 30%;
     border: 1px solid black;
     box-shadow: 2px 2px grey;
     margin-right: 10px;
     background: #f0f0db;
     border-radius: 15px;
+
+    ${mq(null, 'l')(css`
+        width: 98%;
+        `)}
 `;
 
   const ChildContainer = styled.div`
@@ -41,6 +56,11 @@ const AccountMainContainer = styled.div`
     justify-content: space-around;
     align-content: space-around;
     border-radius: 15px;
+
+    ${mq(null, 'l')(css`
+        width: 98%;
+        margin-top: 30px;
+        `)}
 `;
 
 const ChildTitle = styled.div`
@@ -50,7 +70,6 @@ const ChildTitle = styled.div`
     text-align: center;
     background: #262626;
     color: white;
-    margin-bottom: 5px;
     width: 100%;
 `;
 
@@ -64,17 +83,28 @@ const StatisticsMainContainer = styled.div`
 `;
 
 const StatisticsContainer = styled.div`
-    width: 30%;
+    width: 40%;
     border: 1px solid black;
     box-shadow: 2px 2px grey;
     margin-right: 10px;
     background: #f0f0db;
     border-radius: 15px;
     color: black;
+
+    ${mq(null, 'l')(css`
+    width: 98%;
+    margin: 20px auto;
+    `)}
 `;
 const StatisticsCards = styled.div`
     display: flex;
     flex-flow: row;
+
+    ${mq(null, 'l')(css`
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    `)}
 `;
 
 const StatisticsTitle = styled.div`
@@ -119,5 +149,3 @@ export default function Parent(props) {
     </div>
     );
 }
-
-// Nathan Loveless - author of this component
