@@ -10,7 +10,6 @@ const ChildForm = (props) => {
         props.setNewChild({...props.newChild,
              [e.target.name]: e.target.value,
               [e.target.DOB]: e.target.value, 
-              [e.target.id]: Date.now(),
               [e.target.allergies]: e.target.value, 
               [e.target.special_instructions]: e.target.value, 
               [e.target.medical_conditions]: e.target.value, })
@@ -21,7 +20,7 @@ const ChildForm = (props) => {
         if (props.edit) {
         e.preventDefault();
             console.log("AddChild", props);
-            axiosWithAuth().post("/children/create" + props.newChild.id, {
+            axiosWithAuth().post("/children/create", {
                 name: props.newChild.name,
                 DOB: props.newChild.DOB,
                 allergies: props.newChild.allergies,
@@ -31,7 +30,6 @@ const ChildForm = (props) => {
             .then(res => {
                 console.log("editChild", res.data)
                 props.setNewChild({
-                    id: "",
                     name: "",
                     DOB: "",
                     allergies: "",
@@ -65,7 +63,6 @@ const ChildForm = (props) => {
 
           <div>
           <form onSubmit={addChild}>
-            <input type="hidden" name="id" value={props.newChild.id} />
             <input
               type="text"
               name="name"

@@ -16,6 +16,7 @@ const Dashboard = (props) => {
         <Nav />
         <Parent />
         <Child />
+        <Volunteer />
         {/* <Volunteer />
         <Child /> */}
     </div>

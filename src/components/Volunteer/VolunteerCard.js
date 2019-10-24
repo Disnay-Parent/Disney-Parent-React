@@ -1,9 +1,23 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
+import {axiosWithAuth} from "../../utils/axiosWithAuth";
 
-export default function VolunteerCard(props) {
+import {connect} from "react-redux"
+import { fetchLoggedUser } from "../../actions/index";
 
-    const [volunteer, setVolunteer] = useState(props.volunteer);
+function VolunteerCard(props) {
+
+    const [volunteer, setVolunteer] = useState({});
+
+    const getVolunteer = e => {
+        e.preventDefault();
+        axiosWithAuth().get("/users/volunteer", volunteer)
+        .then(res => {
+            console.log(res.data)
+            localStorage.setItem("token", res.data.token)
+        })
+        .catch(err => console.log("getParent", err))
+    }
 
     const AccountTitle = styled.div`
         display: flex;
@@ -47,6 +61,9 @@ export default function VolunteerCard(props) {
         background: #ececdf;
     `;
 
+    useEffect(() => {
+        props.fetchLoggedUser();
+      }, []);
 
     return (
         <AccountData>
@@ -82,3 +99,11 @@ export default function VolunteerCard(props) {
         </AccountData>
     );
 }
+const mapStateToProps = state => {
+    return {
+      volunteer: state.user,
+      isfetching: state.isfetching
+    };
+  };
+  
+  export default connect(mapStateToProps, {fetchLoggedUser})(VolunteerCard)

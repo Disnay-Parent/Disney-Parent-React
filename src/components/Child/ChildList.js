@@ -4,13 +4,12 @@ import {axiosWithAuth} from "../../utils/axiosWithAuth";
 const ChildList = (props) => {
 
     
-  const editChild= id => {
+  const editChild= () => {
     axiosWithAuth()
-      .get("/children/create" + id)
+      .get("/children/create")
       .then(res => {
         console.log("EDIT", res.data);
         props.setNewChild({
-          id: res.data.id,
           name: res.data.name,
           DOB: res.data.DOB, 
           allergies: res.data.allergies,
@@ -22,10 +21,10 @@ const ChildList = (props) => {
     props.setEditChild(true);
   };
 
-  const deleteChild = id => {
+  const deleteChild = () => {
     // console.log("ID", id);
     axiosWithAuth()
-      .delete("/children/" + id)
+      .delete("/children/")
       .then(res => {
         console.log("ADD", res.data);
         props.setNewGetChild(true);

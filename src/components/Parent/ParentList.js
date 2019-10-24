@@ -12,7 +12,7 @@ const ParentList = () => {
       .get("/users/parents" + id)
       .then(res => {
         console.log("EDIT", res.data);
-        props.({
+        props({
           id: res.data.id,
           name: res.data.name,
           age: res.data.age,
