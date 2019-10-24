@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { withRouter } from 'react-router-dom';
 // import {withFormik, Form, Field} from 'formik';
 // import * as Yup from 'yup';
 import {axiosWithAuth} from "../../utils/axiosWithAuth";
@@ -14,7 +15,7 @@ function VolunteerSignUpForm(props) {
              .then(res => {
                  console.log(res.data)
 
-                 localStorage.setItem('token', res.data.token);
+                 
                  props.history.push('/login');
              })
              .catch(err => console.log(err));
@@ -110,7 +111,7 @@ function VolunteerSignUpForm(props) {
               name="avgPerChild"
               type="number"
               placeholder="amount"
-              value={"0" || credentials.avgPerChild}
+              value={credentials.avgPerChild}
               onChange={signUpChangeHandler}
             />
           </div>
@@ -155,4 +156,4 @@ function VolunteerSignUpForm(props) {
 }
 
 
-export default VolunteerSignUpForm;
+export default withRouter(VolunteerSignUpForm);

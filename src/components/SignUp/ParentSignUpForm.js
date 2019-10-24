@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {axiosWithAuth} from "../../utils/axiosWithAuth";
+import { withRouter } from 'react-router-dom';
 
 function ParentSignUpForm(props) {
 
@@ -14,7 +15,7 @@ function ParentSignUpForm(props) {
                 .then(res => {
                     console.log(res.data)
 
-                    localStorage.setItem('token', res.data.token);
+                    
                     props.history.push('/login');
                 })
                 .catch(err => console.log(err));
@@ -124,4 +125,4 @@ function ParentSignUpForm(props) {
 
 
 
-export default ParentSignUpForm;
+export default withRouter(ParentSignUpForm);
