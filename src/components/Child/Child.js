@@ -8,7 +8,6 @@ const Children = (props) => {
   const [newGetChild, setNewGetChild] = useState();
   const [editChild, setEditChild] = useState(false);
   const [newChild, setNewChild] = useState({
-    id: "",
     name: "",
     DOB: "",
     allergies: "",
