@@ -2,6 +2,11 @@ import React, { useState, useEffect } from "react";
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
 import ChildList from "./ChildList";
 import ChildForm from "./ChildForm";
+import styled from 'styled-components';
+
+const ChildTitle = styled.h1`
+    padding-top: 10px;
+`;
 
 const Children = (props) => {
   const [child, setChild] = useState([]);
@@ -28,7 +33,7 @@ const Children = (props) => {
 
   return (
     <div className="children">
-      <h1>Add a New Child!</h1>
+      <ChildTitle>Add a New Child!</ChildTitle>
       <ChildList
         child={child}
         setNewGetChild={setNewGetChild}
