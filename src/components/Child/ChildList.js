@@ -12,8 +12,10 @@ const ChildList = (props) => {
         props.setNewChild({
           id: res.data.id,
           name: res.data.name,
-          age: res.data.age,
-          email: res.data.email
+          DOB: res.data.DOB, 
+          allergies: res.data.allergies,
+          special_instructions: res.data.special_instructions,
+          medical_conditions: res.data.medical_conditions
         });
       })
       .catch(err => console.log(err));
@@ -45,8 +47,10 @@ const ChildList = (props) => {
               </button>
             </div>
             <h3>{item.name}</h3>
-            <p>Age {item.age}</p>
-            <p>Email {item.email}</p>
+            <p>DOB {item.DOB}</p>
+            <p> Allergies: {item.allergies}</p>
+            <p> Special Instructions: {item.special_instructions} </p>
+            <p>Medical Conditions: {item.medical_conditions}</p>
           </div>
         );
       })}

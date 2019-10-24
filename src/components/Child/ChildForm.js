@@ -9,27 +9,34 @@ const ChildForm = (props) => {
     const childChangeHandler = e => {
         props.setNewChild({...props.newChild,
              [e.target.name]: e.target.value,
-              [e.target.age]: e.target.value, 
-              [e.target.email]: e.target.value, 
-              [e.target.id]: Date.now()})
+              [e.target.DOB]: e.target.value, 
+              [e.target.id]: Date.now(),
+              [e.target.allergies]: e.target.value, 
+              [e.target.special_instructions]: e.target.value, 
+              [e.target.medical_conditions]: e.target.value, })
+
     }
 
     const addChild = e => {
         if (props.edit) {
         e.preventDefault();
             console.log("AddChild", props);
-            axiosWithAuth().post("/children" + props.newChild.id, {
+            axiosWithAuth().post("/children/create" + props.newChild.id, {
                 name: props.newChild.name,
-                age: props.newChild.age,
-                email: props.newChild.email
+                DOB: props.newChild.DOB,
+                allergies: props.newChild.allergies,
+                special_instructions: props.newChild.special_instructions,
+                medical_conditions: props.newChild.medical_conditions
             })
             .then(res => {
                 console.log("editChild", res.data)
                 props.setNewChild({
                     id: "",
                     name: "",
-                    age: "",
-                    email: ""
+                    DOB: "",
+                    allergies: "",
+                    special_instructions: "",
+                    medical_conditions: ""
                   });
                   props.setNewGetChild(true);
                 })
@@ -37,13 +44,15 @@ const ChildForm = (props) => {
             } else {
               e.preventDefault();
               axiosWithAuth()
-                .post("/children", props.newChild)
+                .post("/children/create", props.newChild)
                 .then(res => {
                   console.log("ADD", res.data);
                   props.setNewChild({
                     name: "",
-                    age: "",
-                    email: ""
+                    DOB: "",
+                    allergies: "",
+                    special_instructions: "",
+                    medical_conditions: ""
                   });
                   props.setNewGetChild(true);
                 })
@@ -66,18 +75,33 @@ const ChildForm = (props) => {
             />
             <input
               type="text"
-              name="age"
-              value={props.newChild.age}
+              name="DOB"
+              value={props.newChild.DOB}
               onChange={childChangeHandler}
-              placeholder="age"
+              placeholder="Date of Birth"
             />
-            <input
-              type="email"
-              name="email"
-              value={props.newChild.email}
+             <input
+              type="text"
+              name="allergies"
+              value={props.newChild.allergies}
               onChange={childChangeHandler}
-              placeholder="email"
+              placeholder="Allergies"
             />
+             <input
+              type="text"
+              name="special_instructions"
+              value={props.newChild.special_instructions}
+              onChange={childChangeHandler}
+              placeholder="Special Instructions"
+            />
+             <input
+              type="text"
+              name="medical_conditions"
+              value={props.newChild.medical_conditions}
+              onChange={childChangeHandler}
+              placeholder="Medical Conditions"
+            />
+            
             {props.edit ? (
               <button>Edit Child</button>
             ) : (
