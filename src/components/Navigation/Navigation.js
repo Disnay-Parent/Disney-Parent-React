@@ -36,6 +36,10 @@ const Navigation = (props) => {
                   <NavLink href="/logout/" onClick={logOut} >
                         LogOut </NavLink>
                   </NavItem>
+                  <NavItem>
+                  <NavLink href="/messages/" >
+                        Messages </NavLink>
+                  </NavItem>
                   <UncontrolledDropdown nav inNavbar>
                     <DropdownToggle nav caret>
                       Options

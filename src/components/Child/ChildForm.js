@@ -20,7 +20,7 @@ const ChildForm = (props) => {
         if (props.edit) {
         e.preventDefault();
             console.log("AddChild", props);
-            axiosWithAuth().post("/children/create", {
+            axiosWithAuth().post("/children/create/", {
                 name: props.newChild.name,
                 DOB: props.newChild.DOB,
                 allergies: props.newChild.allergies,

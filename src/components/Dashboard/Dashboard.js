@@ -17,8 +17,7 @@ const Dashboard = (props) => {
         <Parent />
         <Child />
         <Volunteer />
-        {/* <Volunteer />
-        <Child /> */}
+       
     </div>
   );
 };
