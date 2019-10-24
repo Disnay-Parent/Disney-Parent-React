@@ -8,9 +8,9 @@ import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk"
 
-import Volunteer from "./components/Volunteer/Volunteer";
-import Parent from "./components/Parent/Parent";
-import { volunteer, parent } from './components/DataTest';
+// import Volunteer from "./components/Volunteer/Volunteer";
+// import Parent from "./components/Parent/Parent";
+// import { volunteer, parent } from './components/DataTest';
 
 const store = createStore(reducer, applyMiddleware(thunk));
 

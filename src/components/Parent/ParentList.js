@@ -1,8 +1,46 @@
 import React from "react";
+import {axiosWithAuth} from "../../utils/axiosWithAuth";
+import styled from 'styled-components';
+
+
 
 const ParentList = () => {
+
+    
+  const viewParent = id => {
+    axiosWithAuth()
+      .get("/users/parents" + id)
+      .then(res => {
+        console.log("EDIT", res.data);
+        props.({
+          id: res.data.id,
+          name: res.data.name,
+          age: res.data.age,
+          email: res.data.email
+        });
+      })
+      .catch(err => console.log(err));
+    props.setEditFriend(true);
+  };
+
+
   return (
-    <div> </div>
+    <div>
+      {props.parents.map(p => {
+        return (
+          <div>
+            <h2> View Parent List</h2>
+            <h3>Parent Name: {p.name}</h3>
+            <p>Parent DOB: {p.DOB}</p>
+            <p>Parent Email: {p.email}</p>
+            <p>Parent Phone Number: {p.phoneNum}</p>
+        </div>
+
+        )
+      })}
+    
+      
+       </div>
   );
 };
 

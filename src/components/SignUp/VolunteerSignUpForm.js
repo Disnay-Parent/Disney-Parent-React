@@ -125,8 +125,8 @@ function VolunteerSignUpForm({errors, touched}, props) {
   );
 }
 
- const dash = props => {
-   props.history.push("/dashboard");
+ const login = props => {
+   props.history.push("/login");
  };
 
 const VolunteerFormikSignUp = withFormik({
@@ -180,6 +180,7 @@ const VolunteerFormikSignUp = withFormik({
   }),
   // End Validation Schema
 
+<<<<<<< HEAD
   handleSubmit(values, formikbag) {
     console.log({ ...values, type: "volunteer" });
     axiosWithAuth()
@@ -191,6 +192,24 @@ const VolunteerFormikSignUp = withFormik({
         formikbag.props.history.push("/dashboard")
       })
       .catch(err => console.log(err));
+=======
+  handleSubmit(values, {resetForm, setErrors, setSubmitting}) {
+    if (values.email === "tiffanyfeldkamp@gmail.com") {
+      setErrors({email: "That email is already taken"});
+    } else {
+      console.log({ ...values, type: "volunteer" });
+      axiosWithAuth()
+        .post("/auth/register", { ...values, type: "volunteer" })
+        .then(res => {
+          console.log(res);
+          setSubmitting(true);
+          localStorage.setItem("token", res.data.token);
+          login();
+        })
+        .catch(err => console.log(err));
+        setSubmitting(false);
+    }
+>>>>>>> 1567dee46994abccb34c81ae9dfd5429f3b6517c
   }
 
 })(VolunteerSignUpForm);

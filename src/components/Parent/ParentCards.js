@@ -2,8 +2,31 @@ import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
 import {connect} from "react-redux"
 import { fetchLoggedUser } from "../../actions/index";
+import { axiosWithAuth } from '../../utils/axiosWithAuth';
 
 function ParentCard(props) {
+
+    const [parent, setParent] = useState({});
+
+    const getParent = e => {
+        e.preventDefault();
+        axiosWithAuth().get("/users/logged", parent)
+        .then(res => {
+            console.log(res.data)
+            localStorage.setItem("token", res.data.token)
+        })
+        .catch(err => console.log("getParent", err))
+    }
+
+    //added axios call to pull in parent data
+
+    //  const changeHandler = event => {
+
+    //     setParent({
+    //         ...parent,
+    //          [event.target.name]: event.target.value 
+    //         });
+    // }
 
     const AccountTitle = styled.div`
         display: flex;

@@ -22,7 +22,7 @@ console.log("clicked logout")
         </Link> 
       
         <Route exact path="/" component={Home} />
-        <button>LOGOUT</button>
+        
         </div>
     )
 }
