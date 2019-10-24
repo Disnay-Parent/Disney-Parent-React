@@ -1,14 +1,16 @@
 import React, {useState} from 'react';
 import {axiosWithAuth} from "../../utils/axiosWithAuth";
 import { withRouter } from 'react-router-dom';
+import styled from 'styled-components';
+
+const MainComponent = styled.div`
+    margin-top: 20px;
+`;
 
 function ParentSignUpForm(props) {
 
-
-
   const [credentials, setCredentials] = useState({});
-
-    
+   
      const parentSignUp = e => {
         e.preventDefault();
         axiosWithAuth().post('/auth/register', {...credentials, type: "parent"})
@@ -31,7 +33,7 @@ function ParentSignUpForm(props) {
 
 
   return (
-    <div>
+    <MainComponent>
       <h1>Parent Sign Up Form</h1>
       <form onSubmit={parentSignUp}>
         <div>
@@ -119,7 +121,7 @@ function ParentSignUpForm(props) {
           <button type="submit">Sign Up</button>
         </div>
       </form>
-    </div>
+    </MainComponent>
   );
 }
 
