@@ -33,8 +33,8 @@ function ParentCard(props) {
         flex-flow: column;
         border-radius: 15px 15px 0px 0px;
         text-align: center;
-        background: #262626;
-        color: white;
+        background: #253b57;
+        color: #E0E4E9;
         margin-bottom: 5px;
     `;
 

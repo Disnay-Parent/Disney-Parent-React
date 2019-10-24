@@ -11,13 +11,12 @@ const AcceptedRequestsData = styled.div`
 `;
 
 const ApprovedRequestTitle = styled.div`
-    background: #262626;
+    background: #253b57;
     border-bottom: 1px solid grey;
     border-radius: 15px 15px 0px 0px;
     text-align: center;
-    font-weight: bold;
     font-size: 1.2em;
-    color: white;
+    color: #E0E4E9;
 `;
 
 const ApprovedRequestHeading = styled.div`

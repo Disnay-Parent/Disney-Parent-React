@@ -43,6 +43,7 @@ const Navigation = (props) => {
                   </NavItem>
                   <NavItem>
                   <NavLink style={{color: '#E0E4E9'}} href="/messages/"
+                  // Need help with onMouseover
                     onMouseOver={{textDecoration: "uppercase", backgroundColor: "#78BEE7"}} >
                         Messages </NavLink>
                   </NavItem>

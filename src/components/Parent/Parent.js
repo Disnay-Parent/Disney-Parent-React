@@ -68,8 +68,8 @@ const ChildTitle = styled.div`
     flex-flow: column;
     border-radius: 15px 15px 0px 0px;
     text-align: center;
-    background: #262626;
-    color: white;
+    background: #253b57;
+    color: #E0E4E9;
     width: 100%;
 `;
 
@@ -112,8 +112,8 @@ const StatisticsTitle = styled.div`
     flex-flow: column;
     border-radius: 15px 15px 0px 0px;
     text-align: center;
-    background: #262626;
-    color: white;
+    background: #253b57;
+    color: #E0E4E9;
     margin-bottom: 5px;
     width: 100%;
 `;
