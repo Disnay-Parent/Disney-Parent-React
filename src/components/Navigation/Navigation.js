@@ -30,6 +30,9 @@ const Navigation = (props) => {
                     <NavLink href="/register/">Register</NavLink>
                   </NavItem>
                   <NavItem>
+                    <NavLink href="/messages/">Messages</NavLink>
+                  </NavItem>
+                  <NavItem>
                     <NavLink href="/login/">Login</NavLink>
                   </NavItem>
                   <NavItem>
@@ -55,6 +58,7 @@ const Navigation = (props) => {
                 </Nav>
               </Collapse>
             </Navbar>
+            {/* Add Messaging to Navbar  */}
         </div>
       )
     
