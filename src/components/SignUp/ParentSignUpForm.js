@@ -3,8 +3,16 @@ import {axiosWithAuth} from "../../utils/axiosWithAuth";
 import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 
-const MainComponent = styled.div`
-    margin-top: 20px;
+const InputField = styled.div`
+    padding: 10px;
+`;
+
+const ParentTitle = styled.h1`
+    background-color: #253b57;
+    color: #E0E4E9;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
 `;
 
 function ParentSignUpForm(props) {
@@ -33,31 +41,28 @@ function ParentSignUpForm(props) {
 
 
   return (
-    <MainComponent>
-      <h1>Parent Sign Up Form</h1>
+    <div>
+      <ParentTitle>Parent Sign Up Form</ParentTitle>
       <form onSubmit={parentSignUp}>
-        <div>
-          <label>Username:</label>
+          <InputField>
             <input 
               name="username"
               type="text"
-              placeholder="username"
+              placeholder="Username"
               value={credentials.username}
               onChange={signUpChangeHandler}
             />
-        </div>
-        <div>
-          <label>Password:</label>
+        </InputField>
+        <InputField>
             <input  
               name="password"
               type="password"
-              placeholder="password"
+              placeholder="Password"
               value={credentials.password}
               onChange={signUpChangeHandler}
             />
-        </div>
-        <div>
-          <label>First Name:</label>
+        </InputField>
+        <InputField>
             <input 
               name="firstName"
               type="text"
@@ -65,9 +70,8 @@ function ParentSignUpForm(props) {
               value={credentials.firstName}
               onChange={signUpChangeHandler}
             />
-        </div>
-        <div>
-          <label>Last Name:</label>
+        </InputField>
+        <InputField>
             <input 
               name="lastName"
               type="text"
@@ -75,53 +79,48 @@ function ParentSignUpForm(props) {
               value={credentials.lastName}
               onChange={signUpChangeHandler}
             />
-        </div>
-        <div>
-          <label>Email:</label>
+        </InputField>
+        <InputField>
             <input 
               name="email"
               type="email"
-              placeholder="email"
+              placeholder="Email"
               value={credentials.email}
               onChange={signUpChangeHandler}
             />
-        </div>
-        
-        <div>
-          <label>Date of Birth:</label>
+        </InputField>
+        <InputField>
             <input 
               name="DOB"
               type="date"
-              placeholder="dob"
+              placeholder="DOB"
               value={credentials.DOB}
               onChange={signUpChangeHandler}
             />
-        </div>
-        <div>
-          <label>Phone Number:</label>
+        </InputField>
+        <InputField>
             <input 
               name="phoneNum"
               type="text"
-              placeholder="phone number"
+              placeholder="Phone Num."
               value={credentials.phoneNum}
               onChange={signUpChangeHandler}
             />
-        </div> 
-        <div>
-          <label>Emergency Phone Number:</label>
+        </InputField>
+        <InputField>
             <input 
               name="emergencyPhone"
               type="text"
-              placeholder="Emergency phone number"
+              placeholder="Emergency Phone Num."
               value={credentials.emergencyPhone}
               onChange={signUpChangeHandler}
             />
-        </div>
-        <div>
+        </InputField>
+        <InputField>
           <button type="submit">Sign Up</button>
-        </div>
+        </InputField>
       </form>
-    </MainComponent>
+    </div>
   );
 }
 
