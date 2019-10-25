@@ -1,6 +1,19 @@
 import React, {useState} from 'react'
 import {axiosWithAuth} from '../../utils/axiosWithAuth';
 import {withRouter} from "react-router-dom";
+import styled from 'styled-components';
+
+const InputField = styled.div`
+    padding: 10px;
+`;
+
+const LoginTitle = styled.h1`
+    background-color: #253b57;
+    color: #E0E4E9;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+`;
 
 function Login(props) {
 
@@ -41,29 +54,28 @@ function Login(props) {
   return (
     <div>
       <form onSubmit={login}>
-        <div>
-          <label>Username:</label>
+        <LoginTitle>Log In</LoginTitle>
+        <InputField>
           <input
             name="username"
             type="text"
-            placeholder="username"
+            placeholder="Username"
             value={object.username}
             onChange={handleChanges}
           />
-        </div>
-        <div>
-          <label>Password:</label>
+        </InputField>
+        <InputField>
           <input
             name="password"
             type="password"
-            placeholder="password"
+            placeholder="Password"
             value={object.password}
             onChange={handleChanges}
           />
-        </div>
-        <div>
+        </InputField>
+        <InputField>
           <button type="submit">Login</button>
-        </div>
+        </InputField>
       </form>
     </div>
   );

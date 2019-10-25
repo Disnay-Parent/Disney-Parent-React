@@ -91,7 +91,7 @@ const ChildForm = (props) => {
                 name="name"
                 value={props.newChild.name}
                 onChange={childChangeHandler}
-                placeholder="name"
+                placeholder="Name"
               />
               </ChildInput>
               <ChildInput>
