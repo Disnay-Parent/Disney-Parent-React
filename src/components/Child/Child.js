@@ -4,7 +4,6 @@ import ChildList from "./ChildList";
 import ChildForm from "./ChildForm";
 import styled from 'styled-components';
 import {connect} from "react-redux"
-import { statement } from "@babel/template";
 
 const ChildTitle = styled.h1`
     padding-top: 10px;
@@ -49,7 +48,7 @@ const Children = (props) => {
         setEditChild={setEditChild}
         newChild={newChild}
         setNewChild={setNewChild}
-        edit={editChild}
+        editChild={editChild}
       />
     </div>
   );

@@ -1,19 +1,21 @@
-import React, {useState} from "react";
+import React, {useState, useEffec} from "react";
 import { deleteMessage } from "../actions/index"
+import {axiosWithAuth} from "../utils/axiosWithAuth";
 
 const MessageCard = (props) => {
 
-  // const [message, setmessage] = useState({});
+  const [message, setmessage] = useState({});
 
-  //   const getMessage = e => {
-  //       e.preventDefault();
-  //       axiosWithAuth().get("/users/logged", parent)
-  //       .then(res => {
-  //           console.log(res.data)
-  //           localStorage.setItem("token", res.data.token)
-  //       })
-  //       .catch(err => console.log("getMessage", err))
-  //   }
+    const getMessage = e => {
+        e.preventDefault();
+
+        axiosWithAuth().get("/users/logged")
+        .then(res => {
+            console.log(res.data)
+            localStorage.setItem("token", res.data.token)
+        })
+        .catch(err => console.log("getMessage", err))
+    }
 
     
 

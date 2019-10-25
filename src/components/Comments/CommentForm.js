@@ -3,20 +3,21 @@ import {axiosWithAuth} from "../../utils/axiosWithAuth"
 
 const CommentForm = (props) => {
 
-    const [comment, setComment] = useState({
-        body: ""
-    })
+    // const [comment, setComment] = useState({
+    //     body: ""
+    // })
 
     const handleChanges = e => {
-        setComment({ ...comment, [e.target.name]: e.target.value });
+        props.setNewCom({ ...props.newCom, 
+            [e.target.name]: e.target.value });
     }
 
     const handleSubmit = (e) =>{
         e.preventDefault()
             axiosWithAuth
                 .post("/comments/create", {
-                    comment: comment.body, 
-                    post_id: props.id
+                    comment: props.newCom.body, 
+                    post_id: props.newCom.id,
                 })
                 .then(res => {
                     console.log(res)
@@ -29,12 +30,20 @@ const CommentForm = (props) => {
         <div>
             <form onSubmit={handleSubmit}>
                 <input
+                type="text"
                 name="body"
-                value={comment.body}
+                value={props.newCom.body}
                 placeHolder="type your comment here!"
                 onChange={handleChanges}
                 />
-                <button type="submit">Post Comment</button>
+                {props.edit ? (
+                <div>
+                <button>Edit Comment</button>
+                <button>Delete Comment</button>
+                </div>
+              ) : (
+                <button>Add Comment</button>
+              )}
             </form>
         </div>
     )

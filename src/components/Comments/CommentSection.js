@@ -1,29 +1,39 @@
-import React, {useEffect, useState} from "react"
-import Comment from "./Comment"
-import CommentForm from "./CommentForm"
+import React, { useState} from "react"
 import {axiosWithAuth} from "../../utils/axiosWithAuth"
 
 const CommentSection = (props) => {
 
-    const [comments, setComments] = useState([])
-    const post_id = props.id
 
-    useEffect(() => {
-        axiosWithAuth
+   const editComment => {
+        axiosWithAuth()
             .get(`/comments/${post_id}`) //need api documentation
             .then(res => {
-                console.log(res)
-                setComments(res)
+                console.log("COMMENTS": res.data)
+                props.setNewCom({
+                    body: res.data.body
+                })
             })
             .catch(err => console.log(err))
-    }, [])
+            props.setEditCom(true);
+    }
+
+    const deleteCom = () => {
+        // console.log("ID", id);
+        axiosWithAuth()
+          .delete("/comments/")
+          .then(res => {
+            console.log("ADD", res.data);
+            props.setNewGetCom(true);
+          })
+          .catch(err => console.log(err));
+      };
 
     return(
         <div>
-            {comments.map(comment => {
-                return <Comment comment={comment}/>
+            {props.com.map(comment => {
+                return <button onClick={() => editCom(comment.id)}/>
             })}
-            <CommentForm />
+            
         </div>
     )
 }

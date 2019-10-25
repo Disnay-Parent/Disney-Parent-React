@@ -46,6 +46,7 @@ const ApprovedRequestSubHeading = styled.div`
     background: #ececdf;
 `;
 
+
 export default function AcceptedRequestsCard() {
     return ( 
         <AcceptedRequestsData>
