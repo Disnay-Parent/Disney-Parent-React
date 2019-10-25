@@ -10,26 +10,45 @@ const MainComponent = styled.div`
 `;
 
 const ParentAndVolunteer = styled.div`
-    margin-bottom: 50px;
-    margin-top: 20px;
+    margin-bottom: 30px;
+`;
+
+const DisneyFont = styled.h1`
+    font-family: 'WaltographRegular';
+`;
+
+const MainTitle = styled.h1`
+    background-color: #253b57;
+    color: #E0E4E9;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 2000px;
+`;
+
+const MainTitle2 = styled.h2`
+    background-color: #253b57;
+    color: #E0E4E9;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 2000px;
 `;
 
 const  Home = () => {
   return (
     <MainComponent>
       <ParentAndVolunteer>
-          <h1>Are you a Parent or Volunteer?</h1>
+          <MainTitle>Are you a Parent or Volunteer?</MainTitle>
 
           <Link to="/parent-signup-form">
-            <h3>Parent</h3>
+            <DisneyFont>Parent</DisneyFont>
           </Link> 
           <Link to="/volunteer-signup-form">
-            <h3>Volunteer</h3>
+            <DisneyFont>Volunteer</DisneyFont>
           </Link>
       </ParentAndVolunteer>
-      <h2>Already have an Account?</h2>
+      <MainTitle2>Already have an Account?</MainTitle2>
       <Link to="/login">
-        <h3>Login</h3>
+        <DisneyFont>Login</DisneyFont>
       </Link>
     </MainComponent>
   );

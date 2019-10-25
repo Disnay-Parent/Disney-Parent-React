@@ -29,26 +29,26 @@ const Navigation = (props) => {
               <Collapse isOpen={isOpen} navbar>
                 <Nav className="ml-auto" navbar>
                   <NavItem>
-                    <NavLink style={{color: '#E0E4E9'}} href="/">Register</NavLink>
+                    <NavLink style={{color: '#E0E4E9', marginRight: '10px'}} href="/">Register</NavLink>
                   </NavItem>
                   {/*<NavItem>
                     <NavLink href="/messages/">Messages</NavLink>
                   </NavItem>*/}
                   <NavItem>
-                    <NavLink style={{color: '#E0E4E9'}} href="/login/">Login</NavLink>
+                    <NavLink style={{color: '#E0E4E9', marginRight: '10px'}} href="/login/">Login</NavLink>
                   </NavItem>
                   <NavItem>
-                  <NavLink style={{color: '#E0E4E9'}} onClick={() => localStorage.clear()} href="/"  >
+                  <NavLink style={{color: '#E0E4E9', marginRight: '10px'}} onClick={() => localStorage.clear()} href="/"  >
                         LogOut </NavLink>
                   </NavItem>
                   <NavItem>
-                  <NavLink style={{color: '#E0E4E9'}} href="/messages/"
+                  <NavLink style={{color: '#E0E4E9', marginRight: '10px'}} href="/messages/"
                   // Need help with onMouseover
                     onMouseOver={{textDecoration: "uppercase", backgroundColor: "#78BEE7"}} >
                         Messages </NavLink>
                   </NavItem>
                   <UncontrolledDropdown nav inNavbar>
-                    <DropdownToggle style={{color: '#E0E4E9'}} nav caret>
+                    <DropdownToggle style={{color: '#E0E4E9', marginRight: '10px'}} nav caret>
                       Options
                     </DropdownToggle>
                     <DropdownMenu style={{backgroundColor: '#253b57'}} right>
