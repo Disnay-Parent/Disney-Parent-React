@@ -165,9 +165,9 @@ function VolunteerSignUpForm(props) {
               </RadioSpan>
             </div>
             </InputField>
-        <div>
+        <InputField>
           <button type="submit">Sign Up</button>
-        </div>
+        </InputField>
       </form>
     </div>
   );
