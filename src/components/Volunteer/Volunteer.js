@@ -1,10 +1,14 @@
-import React, {useState} from 'react';
+import React from 'react';
 import VolunteerCard from '../Volunteer/VolunteerCard';
 import AcceptedRequestsCard from '../Statistics/AcceptedRequestsCard';
 import RecentRequestsCard from '../Statistics/RecentRequestsCard';
 import RecentMessagesCard from '../Statistics/RecentMessagesCard';
-import Nav from '../Navigation/Navigation';
 import styled from 'styled-components';
+import {css} from 'styled-components';
+import MqInit from 'styled-components-media-query';
+
+const bp = {s: 500, l: 800}
+const mq = MqInit({bp})
 
 const MainContainer = styled.div`
     widthvw: 100%;
@@ -20,37 +24,51 @@ const AccountMainContainer = styled.div`
     background: lightblue;
     display: flex;
     border-radius: 15px;
+
+    ${mq(null, 'l')(css`
+        width: 100%;
+        display: flex;
+        flex-flow: column;
+        `)}
 `;
 
-const AccountContainer = styled.div`
-    width: 20%;
+  const AccountContainer = styled.div`
+    width: 30%;
     border: 1px solid black;
     box-shadow: 2px 2px grey;
     margin-right: 10px;
     background: #f0f0db;
     border-radius: 15px;
+
+    ${mq(null, 'l')(css`
+        width: 98%;
+        `)}
 `;
 
-const AcceptedRequestsContainer = styled.div`
-    width: 90%;
-    border: 1px solid black;
-    box-shadow: 2px 2px grey;
-    margin-right: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-content: space-around;
-    border-radius: 15px;
-`;
+//   const ChildContainer = styled.div`
+//     width: 90%;
+//     border: 1px solid black;
+//     box-shadow: 2px 2px grey;
+//     margin-right: 10px;
+//     display: flex;
+//     flex-wrap: wrap;
+//     justify-content: space-around;
+//     align-content: space-around;
+//     border-radius: 15px;
 
-// const AcceptedRequestsTitle = styled.div`
+//     ${mq(null, 'l')(css`
+//         width: 98%;
+//         margin-top: 30px;
+//         `)}
+// `;
+
+// const ChildTitle = styled.div`
 //     display: flex;
 //     flex-flow: column;
 //     border-radius: 15px 15px 0px 0px;
 //     text-align: center;
-//     background: #262626;
-//     color: white;
-//     margin-bottom: 5px;
+//     background: #253b57;
+//     color: #E0E4E9;
 //     width: 100%;
 // `;
 
@@ -64,18 +82,28 @@ const StatisticsMainContainer = styled.div`
 `;
 
 const StatisticsContainer = styled.div`
-    width: 30%;
+    width: 40%;
     border: 1px solid black;
     box-shadow: 2px 2px grey;
     margin-right: 10px;
     background: #f0f0db;
     border-radius: 15px;
     color: black;
-`;
 
+    ${mq(null, 'l')(css`
+    width: 98%;
+    margin: 20px auto;
+    `)}
+`;
 const StatisticsCards = styled.div`
     display: flex;
     flex-flow: row;
+
+    ${mq(null, 'l')(css`
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    `)}
 `;
 
 const StatisticsTitle = styled.div`
@@ -83,22 +111,39 @@ const StatisticsTitle = styled.div`
     flex-flow: column;
     border-radius: 15px 15px 0px 0px;
     text-align: center;
-    background: #262626;
-    color: white;
+    background: #253b57;
+    color: #E0E4E9;
     margin-bottom: 5px;
     width: 100%;
 `;
 
 export default function Volunteer(props) {
-    const [volunteer, setVolunteer] = useState(props.user);
-
     return (
         <div>
-           
-                
-            <VolunteerCard/>
-                   
-          
+            <MainContainer>
+                <AccountMainContainer>
+                    <AccountContainer>
+                        <VolunteerCard />
+                    </AccountContainer>
+                    <StatisticsContainer>
+                        <AcceptedRequestsCard />
+                    </StatisticsContainer>       
+                </AccountMainContainer>
+                <StatisticsMainContainer>
+                <StatisticsTitle><h2>Current Account Activity</h2></StatisticsTitle>
+                    <StatisticsCards>
+                        <StatisticsContainer>
+                            <AcceptedRequestsCard />
+                        </StatisticsContainer>
+                        <StatisticsContainer>
+                            <RecentRequestsCard />
+                        </StatisticsContainer>
+                        <StatisticsContainer>
+                            <RecentMessagesCard />
+                        </StatisticsContainer>
+                    </StatisticsCards>
+                </StatisticsMainContainer>
+            </MainContainer>
         </div>
     );
 }
