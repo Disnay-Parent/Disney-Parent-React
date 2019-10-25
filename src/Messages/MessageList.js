@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import MessageCard from "../Messages/MessageCard"
+import MessageCard from "../Messages/MessageCard";
 //import { useStateValue } from "./state";
 
 
