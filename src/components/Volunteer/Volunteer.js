@@ -125,10 +125,9 @@ export default function Volunteer(props) {
                     <AccountContainer>
                         <VolunteerCard />
                     </AccountContainer>
-                    {/* <ChildContainer>                    
-                        <ChildTitle><h2>Children Details</h2></ChildTitle>
-                        <Child/>
-                    </ChildContainer>         */}
+                    <StatisticsContainer>
+                        <AcceptedRequestsCard />
+                    </StatisticsContainer>       
                 </AccountMainContainer>
                 <StatisticsMainContainer>
                 <StatisticsTitle><h2>Current Account Activity</h2></StatisticsTitle>
