@@ -31,14 +31,11 @@ margin: 10px auto;
 
 const ChildForm = (props) => {
 
+  console.log(props.newChild)
 
     const childChangeHandler = e => {
         props.setNewChild({...props.newChild,
-             [e.target.name]: e.target.value,
-              [e.target.DOB]: e.target.value, 
-              [e.target.allergies]: e.target.value, 
-              [e.target.special_instructions]: e.target.value, 
-              [e.target.medical_conditions]: e.target.value, })
+             [e.target.name]: e.target.value})
 
     }
 

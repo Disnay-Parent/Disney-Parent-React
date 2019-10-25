@@ -3,6 +3,8 @@ import { axiosWithAuth } from "../../utils/axiosWithAuth";
 import ChildList from "./ChildList";
 import ChildForm from "./ChildForm";
 import styled from 'styled-components';
+import {connect} from "react-redux"
+import { statement } from "@babel/template";
 
 const ChildTitle = styled.h1`
     padding-top: 10px;
@@ -23,7 +25,7 @@ const Children = (props) => {
   useEffect(() => {
     setNewGetChild(false);
     axiosWithAuth()
-      .get("/api/children/user/:id")
+      .get(`/children/user/${props.user_id}`)
       .then(res => {
         console.log("GET", res.data);
         setChild(res.data);
@@ -53,4 +55,11 @@ const Children = (props) => {
   );
 };
 
-export default Children;
+const mapStateToProps = (state) => {
+  return ({
+    user_id: state.user.id
+  })
+
+}
+
+export default connect(mapStateToProps, {})(Children);
