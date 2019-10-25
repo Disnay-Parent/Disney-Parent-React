@@ -12,9 +12,10 @@ function Login(props) {
     username: "",
     password: ""
   });
-
+  console.log(object)
   const handleChanges = (e) => {
     setObject({...object, [e.target.name]: e.target.value})
+
   }
 
   

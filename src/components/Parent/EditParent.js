@@ -5,16 +5,25 @@ import { withRouter } from 'react-router-dom';
 
 const EditParent = (props) => {
 
-    const [credentials, setCredentials] = useState(props.user);
-   
+    const [credentials, setCredentials] = useState({
+        firstName: props.user.firstName,
+        lastName: props.user.lastName,
+        DOB: props.user.DOB,
+        phoneNum: props.user.phoneNum,
+        emergencyPhone: props.user.emergencyPhone,
+        type: props.user.type
+    });
+   console.log(credentials)
     const handleSubmit = e => {
+        console.log("submit pressed")
         e.preventDefault();
-        axiosWithAuth().put(`users/user/edit/${props.user.id}`, credentials)
-                .then(res => {
-                    console.log(res.data)
-                    props.history.push('/dashboard');
-                })
-                .catch(err => console.log(err));
+        axiosWithAuth()
+            .put(`users/user/edit/${props.user.id}`, credentials)
+            .then(res => {
+                console.log(res.data)
+                props.history.push('/dashboard');
+            })
+            .catch(err => console.log(err));
    }
 
    const handleChanges = event => {
@@ -45,16 +54,6 @@ const EditParent = (props) => {
                 type="text"
                 placeholder="Last Name"
                 value={credentials.lastName}
-                onChange={handleChanges}
-                />
-            </div>
-            <div>
-            <label>Email:</label>
-                <input 
-                name="email"
-                type="email"
-                placeholder="email"
-                value={credentials.email}
                 onChange={handleChanges}
                 />
             </div>
