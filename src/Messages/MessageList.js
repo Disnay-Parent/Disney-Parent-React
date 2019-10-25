@@ -25,7 +25,7 @@ useEffect(() => {
       return Object.values(message).map(value => {
         return value;
       }).find(value => {
-        return value.includes(searchPhrase);
+        return value.toString().toLowerCase().includes(searchPhrase.toString().toLowerCase());
       });
     });
 
