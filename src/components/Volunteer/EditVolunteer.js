@@ -3,14 +3,14 @@ import {axiosWithAuth} from "../../utils/axiosWithAuth"
 import {connect} from "react-redux"
 import { withRouter } from 'react-router-dom';
 
-const EditParent = (props) => {
+const EditVolunteer = (props) => {
 
     const [credentials, setCredentials] = useState({
         firstName: props.user.firstName,
         lastName: props.user.lastName,
         DOB: props.user.DOB,
         phoneNum: props.user.phoneNum,
-        emergencyPhone: props.user.emergencyPhone,
+        avgPerChild: props.user.avgPerChild,
         type: props.user.type
     });
    console.log(credentials)
@@ -78,12 +78,12 @@ const EditParent = (props) => {
                 />
             </div> 
             <div>
-            <label>Emergency Phone Number:</label>
+            <label>Average Price per Child: </label>
                 <input 
-                name="emergencyPhone"
+                name="avgPerChild"
                 type="text"
-                placeholder="Emergency phone number"
-                value={credentials.emergencyPhone}
+                placeholder="Average Price per Child"
+                value={credentials.avgPerChild}
                 onChange={handleChanges}
                 />
             </div>
@@ -101,4 +101,4 @@ const mapStateToProps = (state) => {
     })
 }
 
-export default withRouter(connect(mapStateToProps, {})(EditParent))
+export default withRouter(connect(mapStateToProps, {})(EditVolunteer))

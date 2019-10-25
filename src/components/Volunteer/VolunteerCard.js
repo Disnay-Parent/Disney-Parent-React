@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
 import {axiosWithAuth} from "../../utils/axiosWithAuth";
-
+import {Link} from 'react-router-dom';
 import {connect} from "react-redux"
 import { fetchLoggedUser } from "../../actions/index";
 
@@ -71,7 +71,7 @@ function VolunteerCard(props) {
               <h2>Account Details</h2>
             </AccountTitle>
             <AccountHeading>
-              <h2>{props.volunteer.firstName} {props.volunteer.lastName}</h2>
+              <h2>{props.volunteer.firstName} {props.volunteer.lastName}</h2> <span><Link to="/volunteer-edit"><button>edit</button></Link></span>
             </AccountHeading>
             <AccountSection>
                 <AccountSubHeading>Username</AccountSubHeading>
