@@ -1,8 +1,23 @@
 import React, {useState} from 'react';
 import { withRouter } from 'react-router-dom';
-// import {withFormik, Form, Field} from 'formik';
-// import * as Yup from 'yup';
 import {axiosWithAuth} from "../../utils/axiosWithAuth";
+import styled from 'styled-components';
+
+const InputField = styled.div`
+    padding: 10px;
+`;
+
+const VolunteerTitle = styled.h1`
+    background-color: #253b57;
+    color: #E0E4E9;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+`;
+
+const RadioSpan = styled.span`
+    padding: 10px;
+`;
 
 function VolunteerSignUpForm(props) {
 
@@ -31,31 +46,28 @@ function VolunteerSignUpForm(props) {
 
   return (
     <div>
-      <h1>Volunteer Sign Up Form</h1>
+      <VolunteerTitle>Volunteer Sign Up Form</VolunteerTitle>
       <form onSubmit={volunteerSignUp}>
     
-        <div>
-          <label>Username:</label>
+        <InputField>
             <input 
               name="username"
               type="text"
-              placeholder="username"
+              placeholder="Username"
               value={credentials.username}
               onChange={signUpChangeHandler}
             />
-        </div>
-        <div>
-          <label>Password:</label>
+        </InputField>
+        <InputField>
             <input  
               name="password"
               type="password"
-              placeholder="password"
+              placeholder="Password"
               value={credentials.password}
               onChange={signUpChangeHandler}
             />
-        </div>
-        <div>
-          <label>First Name:</label>
+        </InputField>
+        <InputField>
             <input 
               name="firstName"
               type="text"
@@ -63,9 +75,8 @@ function VolunteerSignUpForm(props) {
               value={credentials.firstName}
               onChange={signUpChangeHandler}
             />
-        </div>
-        <div>
-          <label>Last Name:</label>
+        </InputField>
+        <InputField>
             <input 
               name="lastName"
               type="text"
@@ -73,80 +84,87 @@ function VolunteerSignUpForm(props) {
               value={credentials.lastName}
               onChange={signUpChangeHandler}
             />
-        </div>
-        <div>
-          <label>Email:</label>
+        </InputField>
+        <InputField>
             <input 
               name="email"
               type="email"
-              placeholder="email"
+              placeholder="Email"
               value={credentials.email}
               onChange={signUpChangeHandler}
             />
-        </div>
-        
-        <div>
-          <label>Date of Birth:</label>
+        </InputField>
+        <InputField>
             <input 
               name="DOB"
               type="date"
-              placeholder="dob"
+              placeholder="DOB"
               value={credentials.DOB}
               onChange={signUpChangeHandler}
             />
-        </div>
-        <div>
-          <label>Phone Number:</label>
+        </InputField>
+        <InputField>
             <input 
               name="phoneNum"
               type="text"
-              placeholder="phone number"
+              placeholder="Phone Num."
               value={credentials.phoneNum}
               onChange={signUpChangeHandler}
             />
-        </div>
-        <div>
-          <label>Average Cost Per Child:</label>
+        </InputField>
+        <InputField>
             <input 
               name="avgPerChild"
               type="number"
-              placeholder="amount"
+              placeholder="Average Cost"
               value={credentials.avgPerChild}
               onChange={signUpChangeHandler}
             />
-          </div>
-          <div>
+          </InputField>
+          <InputField>
             <label>Are you willing to negotiate the cost of service?</label>
-            <input 
-              name="negotiable"
-              type="radio"
-              placeholder="amount"
-              value={true}
-            />
-            Yes
-            <input
-              name="negotiable"
-              type="radio"
-              placeholder="amount"
-              value={false}
-            />
-            No
-          </div>
-          <div>
+            <div>
+                <RadioSpan>
+                    <input 
+                      name="negotiable"
+                      type="radio"
+                      placeholder="amount"
+                      value={true}
+                    />
+                    Yes
+                </RadioSpan>
+                <RadioSpan>
+                    <input
+                      name="negotiable"
+                      type="radio"
+                      placeholder="amount"
+                      value={false}
+                    />
+                    No
+                </RadioSpan>
+            </div>
+            </InputField>
+            <InputField>
             <label>CPR Certified</label>
-            <input  
-              name="cprCertified"
-              type="radio"
-              value=""
-            />
-            Yes
-            <input
-              name="cprCertified"
-              type="radio"
-              value="no"
-            />
-            No
-          </div>
+            <div>
+              <RadioSpan>
+                <input  
+                  name="cprCertified"
+                  type="radio"
+                  value=""
+                />
+                Yes
+              </RadioSpan>
+              <RadioSpan>
+                <input
+                  name="cprCertified"
+                  type="radio"
+                  value="no"
+                />
+                No
+              </RadioSpan>
+            </div>
+            </InputField>
         <div>
           <button type="submit">Sign Up</button>
         </div>
