@@ -3,9 +3,9 @@ import {axiosWithAuth} from "../../utils/axiosWithAuth"
 
 const CommentForm = (props) => {
 
-    // const [comment, setComment] = useState({
-    //     body: ""
-    // })
+    const [comment, setComment] = useState({
+        body: ""
+    })
 
     const handleChanges = e => {
         props.setNewCom({ ...props.newCom, 
