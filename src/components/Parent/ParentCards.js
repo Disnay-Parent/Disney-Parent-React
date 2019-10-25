@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import {connect} from "react-redux"
 import { fetchLoggedUser } from "../../actions/index";
 import { axiosWithAuth } from '../../utils/axiosWithAuth';
+import {Link} from 'react-router-dom';
 
 function ParentCard(props) {
 
@@ -76,7 +77,7 @@ function ParentCard(props) {
 
     return (
     <AccountData>
-        <AccountTitle><h2>Account Details</h2></AccountTitle>
+        <AccountTitle><h2>Account Details</h2><span><Link to="/parent-edit"><button>edit</button></Link></span></AccountTitle>
         <AccountHeading><h2>{props.parent.firstName} {props.parent.lastName}</h2></AccountHeading>
         <AccountSection><AccountSubHeading>Username</AccountSubHeading>
             <Data>{props.parent.username}</Data></AccountSection>
