@@ -8,7 +8,8 @@ const bp = {s: 500, l: 800}
 const mq = MqInit({bp})
 
 const ChildText = styled.div`
-    margin-bottom: 400px;
+    margin-bottom: 50px;
+    margin-top: 25px;
 `;
 
 const Buttons = styled.button`

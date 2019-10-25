@@ -35,13 +35,6 @@ const Children = (props) => {
   return (
     <div className="children">
       <ChildTitle>Add a New Child!</ChildTitle>
-      <ChildList
-        child={child}
-        setNewGetChild={setNewGetChild}
-        setEditChild={setEditChild}
-        newChild={newChild}
-        setNewChild={setNewChild}
-      />
       <ChildForm
         child={child}
         setNewGetChild={setNewGetChild}
@@ -49,6 +42,13 @@ const Children = (props) => {
         newChild={newChild}
         setNewChild={setNewChild}
         edit={editChild}
+      />
+      <ChildList
+        child={child}
+        setNewGetChild={setNewGetChild}
+        setEditChild={setEditChild}
+        newChild={newChild}
+        setNewChild={setNewChild}
       />
     </div>
   );

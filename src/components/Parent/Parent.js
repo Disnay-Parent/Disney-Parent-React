@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import ParentCard from '../Parent/ParentCards';
 import Child from '../Child/Child';
 import AcceptedRequestsCard from '../Statistics/AcceptedRequestsCard';
@@ -121,31 +121,31 @@ const StatisticsTitle = styled.div`
 export default function Parent(props) {
     return (
         <div>
-    <MainContainer>
-        <AccountMainContainer>
-            <AccountContainer>
-                <ParentCard />
-            </AccountContainer>
-            <ChildContainer>                    
-                <ChildTitle><h2>Children Details</h2></ChildTitle>
-                <Child/>
-            </ChildContainer>        
-        </AccountMainContainer>
-        <StatisticsMainContainer>
-        <StatisticsTitle><h2>Current Account Activity</h2></StatisticsTitle>
-            <StatisticsCards>
-                <StatisticsContainer>
-                    <AcceptedRequestsCard />
-                </StatisticsContainer>
-                <StatisticsContainer>
-                    <RecentRequestsCard />
-                </StatisticsContainer>
-                <StatisticsContainer>
-                    <RecentMessagesCard />
-                </StatisticsContainer>
-            </StatisticsCards>
-        </StatisticsMainContainer>
-    </MainContainer>
-    </div>
+            <MainContainer>
+                <AccountMainContainer>
+                    <AccountContainer>
+                        <ParentCard />
+                    </AccountContainer>
+                    <ChildContainer>                    
+                        <ChildTitle><h2>Children Details</h2></ChildTitle>
+                        <Child/>
+                    </ChildContainer>        
+                </AccountMainContainer>
+                <StatisticsMainContainer>
+                <StatisticsTitle><h2>Current Account Activity</h2></StatisticsTitle>
+                    <StatisticsCards>
+                        <StatisticsContainer>
+                            <AcceptedRequestsCard />
+                        </StatisticsContainer>
+                        <StatisticsContainer>
+                            <RecentRequestsCard />
+                        </StatisticsContainer>
+                        <StatisticsContainer>
+                            <RecentMessagesCard />
+                        </StatisticsContainer>
+                    </StatisticsCards>
+                </StatisticsMainContainer>
+            </MainContainer>
+        </div>
     );
 }

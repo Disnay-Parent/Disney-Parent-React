@@ -1,11 +1,11 @@
 import React from "react";
 import {axiosWithAuth} from "../../utils/axiosWithAuth";
-// import styled from 'styled-components';
+import styled from 'styled-components';
 
-// const ChildTitle = styled.h3`
-//     margin-bottom: 400px;
-//     padding-top: 10px;
-// `;
+const Borders = styled.div`
+    border: 2px solid #253b57;
+    width: 100%;
+`;
 
 const ChildList = (props) => {
 
@@ -42,21 +42,23 @@ const ChildList = (props) => {
     <div>
       {props.child.map(item => {
         return (
-          <div className="card" key={item.id}>
-            <div className="buttonBox">
-              <button onClick={() => editChild(item.id)} className="button">
-                &#9998;
-              </button>
-              <button onClick={() => deleteChild(item.id)} className="button">
-                &#10006;
-              </button>
+          <Borders>
+            <div className="card" key={item.id}>
+              <div className="buttonBox">
+                <button onClick={() => editChild(item.id)} className="button">
+                  &#9998;
+                </button>
+                <button onClick={() => deleteChild(item.id)} className="button">
+                  &#10006;
+                </button>
+              </div>
+              <h3>{item.name}</h3>
+              <p>DOB {item.DOB}</p>
+              <p> Allergies: {item.allergies}</p>
+              <p> Special Instructions: {item.special_instructions} </p>
+              <p>Medical Conditions: {item.medical_conditions}</p>
             </div>
-            <h3>{item.name}</h3>
-            <p>DOB {item.DOB}</p>
-            <p> Allergies: {item.allergies}</p>
-            <p> Special Instructions: {item.special_instructions} </p>
-            <p>Medical Conditions: {item.medical_conditions}</p>
-          </div>
+          </Borders>
         );
       })}
     </div>
