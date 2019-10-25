@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import MessageCard from "../Messages/MessageCard"
 //import { useStateValue } from "./state";
 
@@ -15,11 +15,45 @@ const MessageList = (props) => {
 //         </div>
 // )
 
-const [messages, useMessages] = useState(props.messages);
+const [messages, setMessages] = useState(props.messages);
+const [searchPhrase, setSearchPhrase] = useState('');
+const [searchResults, setSearchResults] = useState([]);
+
+useEffect(() => {
+  const filterMessages = messages.filter(message =>
+    {
+      return Object.values(message).map(value => {
+        return value;
+      }).find(value => {
+        return value.includes(searchPhrase);
+      });
+    });
+
+    setSearchResults(filterMessages);
+  }, [searchPhrase]);
+
+  const handleChange = event => {
+      setSearchPhrase(event.target.value);
+  }
 
 return (
-    messages.map(message => (
+    <div>
+         <form>
+            <label for='name'>Search:</label>
+            <input
+             id='name'
+             type='text'
+             name='textfield'
+             placeholder="Search"
+             value={searchPhrase}
+             onChange={handleChange}
+             />
+         </form>
+         
+    {searchResults.map(message => (
         <MessageCard message={message}/>
-      )))
+      ))}      
+    </div>
+);
 }
 export default MessageList;
