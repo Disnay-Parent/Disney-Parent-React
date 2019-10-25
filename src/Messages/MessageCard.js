@@ -1,5 +1,26 @@
 import React, {useState} from "react";
 import { deleteMessage } from "../actions/index"
+import styled from 'styled-components';
+
+const CardContainer = styled.div`
+    width: 98%;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    margin-top: 20px;
+    border: 2px solid #253b57;
+    
+`;
+
+const MessageTitle = styled.h2`
+    background-color: #253b57;
+    color: #E0E4E9;
+    padding-top: 20px;
+    padding-bottom: 20px;
+`;
+
+const Headings = styled.h4`
+    background-color: #f0f0db;
+`;
 
 const MessageCard = (props) => {
 
@@ -29,13 +50,15 @@ const MessageCard = (props) => {
   //   );
   return (
     <div>
-    <div><h2>{props.message.location} @ {props.message.time}</h2></div>
-    <div><h4>Message Post</h4></div>
+      <CardContainer>
+    <MessageTitle>{props.message.location} @ {props.message.time}</MessageTitle>
+    <Headings>Message Post</Headings>
       <span>{props.message.post}</span>
-    <div><h4>Location</h4></div>
+    <Headings>Location</Headings>
     <span>{props.message.location}</span>
-    <div><h4>Time</h4></div>
+    <Headings>Time</Headings>
     <span>{props.message.time}</span>
+    </CardContainer>
     </div>
   );
 };
