@@ -24,7 +24,7 @@ const Navigation = (props) => {
         return(
           <div>
             <Navbar style={{backgroundColor: '#253b57'}} light expand="md">
-              <NavbarBrand style={{color: '#E0E4E9'}} href="/">Disney Parent</NavbarBrand>
+              <NavbarBrand style={{color: '#E0E4E9'}} href="/dashboard">Disney Parent</NavbarBrand>
               <NavbarToggler onClick={toggle} />
               <Collapse isOpen={isOpen} navbar>
                 <Nav className="ml-auto" navbar>
