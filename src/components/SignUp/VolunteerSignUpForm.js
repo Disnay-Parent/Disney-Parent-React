@@ -126,16 +126,17 @@ function VolunteerSignUpForm(props) {
             <div>
                 <RadioSpan>
                     <input 
-                      name="negotiable"
+                      name="priceNegotiable"
                       type="radio"
                       placeholder="amount"
                       value={true}
+
                     />
                     Yes
                 </RadioSpan>
                 <RadioSpan>
                     <input
-                      name="negotiable"
+                      name="priceNegotiable"
                       type="radio"
                       placeholder="amount"
                       value={false}
@@ -149,7 +150,7 @@ function VolunteerSignUpForm(props) {
             <div>
               <RadioSpan>
                 <input  
-                  name="cprCertified"
+                  name="CPR_Certified"
                   type="radio"
                   value=""
                 />
@@ -157,7 +158,7 @@ function VolunteerSignUpForm(props) {
               </RadioSpan>
               <RadioSpan>
                 <input
-                  name="cprCertified"
+                  name="CPR_Certified"
                   type="radio"
                   value="no"
                 />
