@@ -8,7 +8,7 @@ const bp = {s: 500, l: 800}
 const mq = MqInit({bp})
 
 const ChildText = styled.div`
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     margin-top: 25px;
 `;
 
@@ -131,14 +131,9 @@ const ChildForm = (props) => {
                 placeholder="Medical Conditions"
               />
               </ChildInput>
-              
-              {props.edit ? (
-                <Buttons>Edit Child</Buttons>
-              ) : (
-                <Buttons>Add Child</Buttons>
-              )}
+              <Buttons>Add Child</Buttons>
           </form>
-          </ChildText>
+        </ChildText>
       )
     };
 

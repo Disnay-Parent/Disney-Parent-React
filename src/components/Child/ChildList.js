@@ -3,8 +3,9 @@ import {axiosWithAuth} from "../../utils/axiosWithAuth";
 import styled from 'styled-components';
 
 const Borders = styled.div`
-    border: 2px solid #253b57;
-    width: 100%;
+    border: 1px solid #253b57;
+    width: 80%;
+    margin: 15px auto;
 `;
 
 const ChildList = (props) => {
