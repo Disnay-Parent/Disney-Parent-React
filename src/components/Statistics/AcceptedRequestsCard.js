@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import {messages} from '../DataTest';
 
 const AcceptedRequestsData = styled.div`
     display: flex;
@@ -48,24 +49,21 @@ const ApprovedRequestSubHeading = styled.div`
 
 
 export default function AcceptedRequestsCard() {
-    return ( 
+    const messageData = messages.slice(3, 6).map(m => {
+        return (
         <AcceptedRequestsData>
-            <ApprovedRequestTitle>Your Approved Requests</ApprovedRequestTitle>
-            <ApprovedRequestHeading>Message Title</ApprovedRequestHeading>
+            <ApprovedRequestHeading key={m.post}>{m.location}</ApprovedRequestHeading>
             <ApprovedRequestSection>
-                <ApprovedRequestSubHeading>TimeStamp</ApprovedRequestSubHeading>
-                <Data>9/3/2019 13:31</Data>
-            </ApprovedRequestSection>
-            <ApprovedRequestSection>
-                <ApprovedRequestSubHeading>Message Contents</ApprovedRequestSubHeading>
-                <Data>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quodsi ipsam honestatem 
-                    undique pertectam atque absolutam. Facete M. Quid censes in Latino fore? Consequens 
-                    enim est et post oritur, ut dixi.</Data>
-            </ApprovedRequestSection>
-            <ApprovedRequestSection>
-                <ApprovedRequestSubHeading>Other Data</ApprovedRequestSubHeading>
-                <Data>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </Data>
+                    <ApprovedRequestSubHeading>TimeStamp</ApprovedRequestSubHeading>
+                    <Data key={m.post}>{m.time}</Data>
             </ApprovedRequestSection>
         </AcceptedRequestsData>
-    );
-}
+        );
+        });
+        return ( 
+            <div>
+                <ApprovedRequestTitle>Recent Messages</ApprovedRequestTitle>
+                {messageData}
+            </div>
+        );
+    }
