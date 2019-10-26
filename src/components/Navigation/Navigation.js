@@ -24,7 +24,9 @@ const Navigation = (props) => {
         return(
           <div>
             <Navbar style={{backgroundColor: '#253b57'}} light expand="md">
-              <NavbarBrand style={{color: '#E0E4E9'}} href="/dashboard">Disney Parent</NavbarBrand>
+              <NavbarBrand style={{color: '#E0E4E9'}} href="/dashboard">
+                {props.userType === "parent" ? "Disney Parent" : "Disney Volunteer"}
+              </NavbarBrand>
               <NavbarToggler onClick={toggle} />
               <Collapse isOpen={isOpen} navbar>
                 <Nav className="ml-auto" navbar>
@@ -42,10 +44,7 @@ const Navigation = (props) => {
                         LogOut </NavLink>
                   </NavItem>
                   <NavItem>
-                  <NavLink style={{color: '#E0E4E9', marginRight: '10px'}} href="/messages/"
-                  // Need help with onMouseover
-                    onMouseOver={{textDecoration: "uppercase", backgroundColor: "#78BEE7"}} >
-                        Messages </NavLink>
+                  <NavLink style={{color: '#E0E4E9', marginRight: '10px'}} href="/messages/">Messages</NavLink>
                   </NavItem>
                 </Nav>
               </Collapse>

@@ -20,13 +20,13 @@ function VolunteerCard(props) {
     }
 
     const AccountTitle = styled.div`
-        display: flex;
-        flex-flow: column;
-        border-radius: 15px 15px 0px 0px;
-        text-align: center;
-        background: #262626;
-        color: white;
-        margin-bottom: 5px;
+    display: flex;
+    flex-flow: column;
+    border-radius: 15px 15px 0px 0px;
+    text-align: center;
+    background: #253b57;
+    color: #E0E4E9;
+    margin-bottom: 5px;
     `;
 
     const AccountData = styled.div`

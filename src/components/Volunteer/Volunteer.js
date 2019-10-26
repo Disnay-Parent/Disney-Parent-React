@@ -81,7 +81,7 @@ const StatisticsMainContainer = styled.div`
 `;
 
 const StatisticsContainer = styled.div`
-    width: 40%;
+    width: 98%;
     border: 1px solid black;
     box-shadow: 2px 2px grey;
     margin-right: 10px;
