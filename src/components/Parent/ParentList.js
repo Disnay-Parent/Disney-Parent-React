@@ -1,12 +1,8 @@
 import React from "react";
 import {axiosWithAuth} from "../../utils/axiosWithAuth";
-import styled from 'styled-components';
-
-
 
 const ParentList = () => {
-
-    
+ 
   const viewParent = id => {
     axiosWithAuth()
       .get("/users/parents" + id)
@@ -22,7 +18,6 @@ const ParentList = () => {
       .catch(err => console.log(err));
     props.setEditFriend(true);
   };
-
 
   return (
     <div>

@@ -2,6 +2,19 @@ import React, {useState} from "react"
 import {axiosWithAuth} from "../../utils/axiosWithAuth"
 import {connect} from "react-redux"
 import { withRouter } from 'react-router-dom';
+import styled from 'styled-components';
+
+const InputField = styled.div`
+    padding: 10px;
+`;
+
+const VolunteerEditTitle = styled.h1`
+    background-color: #253b57;
+    color: #E0E4E9;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+`;
 
 const EditVolunteer = (props) => {
 
@@ -34,10 +47,9 @@ const EditVolunteer = (props) => {
 
     return(
     <div>
-        <h1>Edit Your Account</h1>
+        <VolunteerEditTitle>Edit Your Account</VolunteerEditTitle>
         <form onSubmit={handleSubmit}>
-            <div>
-            <label>First Name:</label>
+            <InputField>
                 <input 
                 name="firstName"
                 type="text"
@@ -45,9 +57,8 @@ const EditVolunteer = (props) => {
                 value={credentials.firstName}
                 onChange={handleChanges}
                 />
-            </div>
-            <div>
-            <label>Last Name:</label>
+            </InputField>
+            <InputField>
                 <input 
                 name="lastName"
                 type="text"
@@ -55,41 +66,37 @@ const EditVolunteer = (props) => {
                 value={credentials.lastName}
                 onChange={handleChanges}
                 />
-            </div>
-            
-            <div>
-            <label>Date of Birth:</label>
+            </InputField>
+            <InputField>
                 <input 
                 name="DOB"
                 type="date"
-                placeholder="dob"
+                placeholder="DOB"
                 value={credentials.DOB}
                 onChange={handleChanges}
                 />
-            </div>
-            <div>
-            <label>Phone Number:</label>
+            </InputField>
+            <InputField>
                 <input 
                 name="phoneNum"
                 type="text"
-                placeholder="phone number"
+                placeholder="Phone Num."
                 value={credentials.phoneNum}
                 onChange={handleChanges}
                 />
-            </div> 
-            <div>
-            <label>Average Price per Child: </label>
+            </InputField>
+            <InputField>
                 <input 
                 name="avgPerChild"
                 type="text"
-                placeholder="Average Price per Child"
+                placeholder="Average Cost"
                 value={credentials.avgPerChild}
                 onChange={handleChanges}
                 />
-            </div>
-            <div>
-            <button type="submit">Submit Edits</button>
-            </div>
+            </InputField>
+            <InputField>
+                <button type="submit">Submit Edits</button>
+            </InputField>
         </form>
     </div>
     )

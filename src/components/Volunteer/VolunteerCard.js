@@ -89,13 +89,10 @@ function VolunteerCard(props) {
                 <AccountSubHeading>Phone Number</AccountSubHeading>
                 <Data>{props.volunteer.phoneNum}</Data>
             </AccountSection>
-
-            {/* Change to Volunteer Data tonight */}
-            
-            {/* <AccountSection>
-                <AccountSubHeading>Emergency Phone</AccountSubHeading>
-                <Data>{volunteer.emergencyPhone}</Data>
-            </AccountSection> */}
+            <AccountSection>
+                <AccountSubHeading>Average Cost</AccountSubHeading>
+                <Data>{props.volunteer.avgPerChild}</Data>
+            </AccountSection>
         </AccountData>
     );
 }
