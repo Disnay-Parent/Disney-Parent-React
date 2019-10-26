@@ -12,7 +12,7 @@ const ChildList = (props) => {
     
   const editChild= () => {
     axiosWithAuth()
-      .put(`/children/create/edit/${props.user_id}`)
+      .put(`/children/edit/${props.user_id}`)
       .then(res => {
         console.log("EDIT", res.data);
         props.setNewChild({

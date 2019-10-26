@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
 import ChildList from "./ChildList";
 import ChildForm from "./ChildForm";
+import EditChild from "./EditChild";
 import styled from 'styled-components';
 import {connect} from "react-redux"
 
