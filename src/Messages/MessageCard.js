@@ -53,14 +53,14 @@ const MessageCard = (props) => {
   return (
     <div>
       <CardContainer>
-    <MessageTitle>{props.message.location} @ {props.message.time}</MessageTitle>
-    <Headings>Message Post</Headings>
-      <span>{props.message.post}</span>
-    <Headings>Location</Headings>
-    <span>{props.message.location}</span>
-    <Headings>Time</Headings>
-    <span>{props.message.time}</span>
-    </CardContainer>
+          <MessageTitle>{props.message.location} @ {props.message.time}</MessageTitle>
+          <Headings>Message Post</Headings>
+            <span>{props.message.post}</span>
+          <Headings>Location</Headings>
+          <span>{props.message.location}</span>
+          <Headings>Time</Headings>
+          <span>{props.message.time}</span>
+      </CardContainer>
     </div>
   );
 };

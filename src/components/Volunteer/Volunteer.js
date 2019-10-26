@@ -38,6 +38,7 @@ const AccountMainContainer = styled.div`
     margin-right: 10px;
     background: #f0f0db;
     border-radius: 15px;
+
     ${mq(null, 'l')(css`
         width: 98%;
         `)}

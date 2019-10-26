@@ -2,28 +2,15 @@ import React, {useState} from "react"
 import {axiosWithAuth} from "../../utils/axiosWithAuth"
 import {connect} from "react-redux"
 import { withRouter } from 'react-router-dom';
-import styled from 'styled-components';
 
-const InputField = styled.div`
-    padding: 10px;
-`;
-
-const ParentEditTitle = styled.h1`
-    background-color: #253b57;
-    color: #E0E4E9;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    margin-bottom: 30px;
-`;
-
-const EditParent = (props) => {
+const EditVolunteer = (props) => {
 
     const [credentials, setCredentials] = useState({
         firstName: props.user.firstName,
         lastName: props.user.lastName,
         DOB: props.user.DOB,
         phoneNum: props.user.phoneNum,
-        emergencyPhone: props.user.emergencyPhone,
+        avgPerChild: props.user.avgPerChild,
         type: props.user.type
     });
    console.log(credentials)
@@ -47,9 +34,10 @@ const EditParent = (props) => {
 
     return(
     <div>
-        <ParentEditTitle>Edit Your Account</ParentEditTitle>
+        <h1>Edit Your Account</h1>
         <form onSubmit={handleSubmit}>
-            <InputField>
+            <div>
+            <label>First Name:</label>
                 <input 
                 name="firstName"
                 type="text"
@@ -57,8 +45,9 @@ const EditParent = (props) => {
                 value={credentials.firstName}
                 onChange={handleChanges}
                 />
-            </InputField>
-            <InputField>
+            </div>
+            <div>
+            <label>Last Name:</label>
                 <input 
                 name="lastName"
                 type="text"
@@ -66,46 +55,41 @@ const EditParent = (props) => {
                 value={credentials.lastName}
                 onChange={handleChanges}
                 />
-            </InputField>
-            <InputField>
-                <input 
-                name="email"
-                type="email"
-                placeholder="Email"
-                value={credentials.email}
-                onChange={handleChanges}
-                />
-            </InputField>
-            <InputField>
+            </div>
+            
+            <div>
+            <label>Date of Birth:</label>
                 <input 
                 name="DOB"
                 type="date"
-                placeholder="DOB"
+                placeholder="dob"
                 value={credentials.DOB}
                 onChange={handleChanges}
                 />
-            </InputField>
-            <InputField>
+            </div>
+            <div>
+            <label>Phone Number:</label>
                 <input 
                 name="phoneNum"
                 type="text"
-                placeholder="Phone Num."
+                placeholder="phone number"
                 value={credentials.phoneNum}
                 onChange={handleChanges}
                 />
-            </InputField>
-            <InputField>
+            </div> 
+            <div>
+            <label>Average Price per Child: </label>
                 <input 
-                name="emergencyPhone"
+                name="avgPerChild"
                 type="text"
-                placeholder="Emergency Phone Num."
-                value={credentials.emergencyPhone}
+                placeholder="Average Price per Child"
+                value={credentials.avgPerChild}
                 onChange={handleChanges}
                 />
-            </InputField>
-            <InputField>
+            </div>
+            <div>
             <button type="submit">Submit Edits</button>
-            </InputField>
+            </div>
         </form>
     </div>
     )
@@ -117,4 +101,4 @@ const mapStateToProps = (state) => {
     })
 }
 
-export default withRouter(connect(mapStateToProps, {})(EditParent))
+export default withRouter(connect(mapStateToProps, {})(EditVolunteer))
