@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import {logOut} from "../../actions/index";
-import Messages from "../../Messages/Messages";
-import { Route } from "react-router-dom";
-import PrivateRoute from "../../utils/PrivateRoute";
+// import {logOut} from "../../actions/index";
+// import Messages from "../../Messages/Messages";
+// import { Route } from "react-router-dom";
+// import PrivateRoute from "../../utils/PrivateRoute";
 import {
     Collapse,
     Navbar,
@@ -48,22 +48,6 @@ const Navigation = (props) => {
                     >
                         Messages </NavLink>
                   </NavItem>
-                  <UncontrolledDropdown nav inNavbar>
-                    <DropdownToggle style={{color: '#E0E4E9', marginRight: '10px'}} nav caret>
-                      Options
-                    </DropdownToggle>
-                    <DropdownMenu style={{backgroundColor: '#253b57'}} right>
-                      <DropdownItem style={{color: '#E0E4E9'}}>
-                        Option 1
-                      </DropdownItem>
-                      <DropdownItem style={{color: '#E0E4E9'}}>
-                        Option 2
-                      </DropdownItem>
-                      <DropdownItem divider />
-                      <DropdownItem>
-                      </DropdownItem>
-                    </DropdownMenu>
-                  </UncontrolledDropdown>
                 </Nav>
               </Collapse>
             </Navbar>
