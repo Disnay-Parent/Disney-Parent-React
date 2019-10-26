@@ -11,7 +11,7 @@ const CommentSection = (props) => {
             .get(`/comments/comment/1`) //i dont think we have a endpoint to get from a specific post, I'm just grabbing the first comment here
             .then(res => {
                 console.log(res.data)
-            setCommentList(res.data)
+            setCommentList()
             })
             .catch(err => console.log(err))
     }, []);
@@ -44,7 +44,7 @@ const CommentSection = (props) => {
 
     return(
         <div>
-            <p>{commentList.username} ({commentList.firstName} {commentList.lastName}): {commentList.comment}</p>
+            {/* <p>{commentList.username} ({commentList.firstName} {commentList.lastName}): {commentList.comment}</p> */}
         
 
             {/* {commentList.map( comment => {
