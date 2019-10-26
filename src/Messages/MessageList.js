@@ -1,6 +1,15 @@
 import React, {useState, useEffect} from "react";
 import MessageCard from "../Messages/MessageCard";
 //import { useStateValue } from "./state";
+import styled from "styled-components";
+
+const MainContainer = styled.div`
+  margin-top: 20px;
+`;
+
+const SearchText = styled.span`
+  margin-right: 10px;
+`;
 
 
 const MessageList = (props) => {
@@ -37,9 +46,9 @@ useEffect(() => {
   }
 
 return (
-    <div>
+    <MainContainer>
          <form>
-            <label for='name'>Search:</label>
+            <SearchText>Search:</SearchText>
             <input
              id='name'
              type='text'
@@ -53,7 +62,7 @@ return (
     {searchResults.map(message => (
         <MessageCard message={message}/>
       ))}      
-    </div>
+    </MainContainer>
 );
 }
 export default MessageList;
