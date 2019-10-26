@@ -44,7 +44,8 @@ const Navigation = (props) => {
                   <NavItem>
                   <NavLink style={{color: '#E0E4E9', marginRight: '10px'}} href="/messages/"
                   // Need help with onMouseover
-                    onMouseOver={{textDecoration: "uppercase", backgroundColor: "#78BEE7"}} >
+                    // onMouseOver={{textDecoration: "uppercase", backgroundColor: "#78BEE7"}} 
+                    >
                         Messages </NavLink>
                   </NavItem>
                   <UncontrolledDropdown nav inNavbar>

@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import MessageCard from "../Messages/MessageCard";
 //import { useStateValue } from "./state";
 import styled from "styled-components";
+import {axiosWithAuth} from "../utils/axiosWithAuth"
 
 const MainContainer = styled.div`
   margin-top: 20px;
@@ -24,11 +25,25 @@ const MessageList = (props) => {
 //         </div>
 // )
 
-const [messages, setMessages] = useState(props.messages);
+const [messages, setMessages] = useState([]);
 const [searchPhrase, setSearchPhrase] = useState('');
 const [searchResults, setSearchResults] = useState([]);
 
+const handleSubmit = e => {
+  e.preventDefault();
+
+}
+
 useEffect(() => {
+  axiosWithAuth()
+  .get(`/posts/posts`)
+  .then(res => {
+      console.log(res.data)
+      setMessages(res.data)
+  
+  })
+  .catch(err => console.log(err));
+  
   const filterMessages = messages.filter(message =>
     {
       return Object.values(message).map(value => {
@@ -39,7 +54,7 @@ useEffect(() => {
     });
 
     setSearchResults(filterMessages);
-  }, [searchPhrase]);
+  }, [searchPhrase, ]);
 
   const handleChange = event => {
       setSearchPhrase(event.target.value);
@@ -66,3 +81,7 @@ return (
 );
 }
 export default MessageList;
+
+
+
+
