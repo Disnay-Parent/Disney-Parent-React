@@ -25,7 +25,7 @@ const Navigation = (props) => {
           <div>
             <Navbar style={{backgroundColor: '#253b57'}} light expand="md">
               <NavbarBrand style={{color: '#E0E4E9'}} href="/dashboard">
-                {props.userType === "parent" ? "Disney Parent" : "Disney Volunteer"}
+                {props.name === "parent" ? "Disney Parent" : "Disney Volunteer"}
               </NavbarBrand>
               <NavbarToggler onClick={toggle} />
               <Collapse isOpen={isOpen} navbar>
