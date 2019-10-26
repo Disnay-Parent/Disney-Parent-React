@@ -1,6 +1,7 @@
 import React, {useState} from "react"
 import {axiosWithAuth} from "../utils/axiosWithAuth"
-
+import {connect} from "react-redux"
+import {loadPost} from "../actions/index"
 
 const CreateMessage = (props) => {
 
@@ -16,6 +17,12 @@ const CreateMessage = (props) => {
             .post(`/posts/create`, post)
             .then(res => {
                 console.log(res.data)
+                props.loadPost();
+                setPost({
+                    post: "",
+                    location: "",
+                    time: ""
+                })
             })
             .catch(err => console.log(err));
     }
@@ -58,5 +65,10 @@ const CreateMessage = (props) => {
         </div>
       )
 }
-
-export default CreateMessage
+const mapStateToProps = state => {
+    return {
+      isFetching: state.isFetching
+    };
+  };
+  
+  export default connect(mapStateToProps, {loadPost})(CreateMessage);

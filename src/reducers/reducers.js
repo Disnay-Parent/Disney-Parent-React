@@ -6,14 +6,15 @@ import {
   LOGIN_FAIL,
   FETCH_LOGGED_USER_START,
   FETCH_LOGGED_USER_SUCCESS,
-  FETCH_LOGGED_USER_FAIL
+  FETCH_LOGGED_USER_FAIL,
+  LOAD_POST
 } from "../actions/index";
 
 export const initialState = {
     user: {username: "user placeholder"},
     userlist: {},
     isFetching: false,
-    error: ""
+    error: "",
   };
 
 export const reducer = (state = initialState, action) => {
@@ -62,16 +63,24 @@ export const reducer = (state = initialState, action) => {
           isFetching: false,
           error: action.payload.error
         };
+
       case DELETE_MSG:
         return {
           ...state,
           user: action.payload //replacing current state with the state that's deleted with message
         };
+
       case LOGOUT:
         return {
           ...state,
           user: ""
         };
+
+        case LOAD_POST:
+        return {
+          ...state,
+          isFetching: action.payload
+        }
       default:
         return state;
     }

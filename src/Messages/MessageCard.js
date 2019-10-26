@@ -1,4 +1,4 @@
-import React, {useState, useEffec} from "react";
+import React, {useState} from "react";
 // import { deleteMessage } from "../actions/index"
 import styled from 'styled-components';
 import {axiosWithAuth} from "../utils/axiosWithAuth";

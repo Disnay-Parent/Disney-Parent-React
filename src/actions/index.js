@@ -9,6 +9,7 @@ export const FETCH_LOGGED_USER_START = "FETCH_LOGGED_USER_START";
 export const FETCH_LOGGED_USER_SUCCESS = "FETCH_LOGGED_USER_SUCCESS";
 export const FETCH_LOGGED_USER_FAIL = "FETCH_LOGGED_USER_FAIL";
 export const LOGOUT = "LOGOUT"
+export const LOAD_POST = "LOAD_POST"
 
 export const userLogin = (credentials) => (dispatch) => {
     console.log("in login action")
@@ -55,6 +56,16 @@ export const deleteMessage = (id) => dispatch => {
 export const logOut = () => dispatch => {
     console.log()
     localStorage.remove("token");
-    dispatch({TYPE: LOGOUT})
+    dispatch({type: LOGOUT})
     
+}
+
+export const loadPost = () => dispatch => {
+  dispatch({type: LOAD_POST, payload: true})
+  console.log("ran")
+  setTimeout(() => {
+    
+    dispatch({type: LOAD_POST, payload: false})
+  }, 100)
+  
 }
