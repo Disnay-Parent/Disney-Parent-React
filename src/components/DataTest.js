@@ -59,38 +59,70 @@ export const volunteer = {
 
 export const messages = [
   {
-    post: "I need somebody to watch my children for 1 hour",
+    post: "0",
     location: "Magic Kingdom",
     time: "1:00 pm"
   },
 
   {
-    post: "We would like to go to dinner tonight",
+    post: "1",
     location: "Swan Hotel and Restaurant",
     time: "7:00 pm"
   },
 
   {
-    post: "I need to get some groceries for our hotel room",
+    post: "2",
     location: "Swan Hotel",
     time: "3:00 pm"
   },
 
   {
-    post: "Looking for somebody to watch our children for a few hours, then we can watch your children for the same time",
+    post: "3",
     location: "Epcot",
     time: "12:00 - 3:00 pm"
   },
 
   {
-    post: "Husband is sick, can somebody watch children while I take him to the doctor?",
+    post: "4",
     location: "All Star Sports Resort",
     time: "ASAP"
   },
 
   {
-    post: "We are leaving the resort to go to a dinner theatre in Orlando, need a babysitter for a couple hours",
+    post: "5",
     location: "Carribean Beach Resort",
     time: "6:00 - 10:00 pm"
+  },
+]
+
+export const comments = [
+  {
+    comment: "I can watch your children during that time",
+    post_id: "0"
+  },
+
+  {
+    comment: "I am available during that time",
+    post_id: "3"
+  },
+
+  {
+    comment: "I apologize, I am only available until 2:00 pm let me know if you would like me to watch them during that time",
+    post_id: "3"
+  },
+
+  {
+    pcomment: "I am available immediately, you can call me",
+    post_id: "4"
+  },
+
+  {
+    comment: "I will be at Swan Hotel until 6:00 pm that night",
+    post_id: "1"
+  },
+
+  {
+    comment: "Please give me a call if you need my services, thanks!",
+    post_id: "2"
   },
 ]
