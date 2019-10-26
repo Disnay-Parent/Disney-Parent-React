@@ -2,6 +2,7 @@ import React, {useState} from "react";
 // import { deleteMessage } from "../actions/index"
 import styled from 'styled-components';
 import {axiosWithAuth} from "../utils/axiosWithAuth";
+import CommentForm from "../components/Comments/CommentForm";
 
 const CardContainer = styled.div`
     width: 98%;
@@ -54,12 +55,12 @@ const MessageCard = (props) => {
     <div>
       <CardContainer>
           <MessageTitle>{props.message.location} @ {props.message.time}</MessageTitle>
-          <Headings>Message Post</Headings>
-            <span>{props.message.post}</span>
           <Headings>Location</Headings>
           <span>{props.message.location}</span>
           <Headings>Time</Headings>
           <span>{props.message.time}</span>
+          <Headings>Comments</Headings>
+          {/*<div><CommentForm id={props.message.post} /></div>*/}
       </CardContainer>
       
     </div>
