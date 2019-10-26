@@ -1,14 +1,26 @@
-import React, { useState} from "react"
-import {axiosWithAuth} from "../../utils/axiosWithAuth"
+import React, { useState, useEffect} from "react";
+import {axiosWithAuth} from "../../utils/axiosWithAuth";
 
 const CommentSection = (props) => {
 
+    const [commentList, setCommentList] = useState([]);
 
-   const editComment => {
+    useEffect( () => {
+        console.log("in useefect")
         axiosWithAuth()
-            .get(`/comments/${post_id}`) //need api documentation
+            .get(`/comments/comment/1`) //i dont think we have a endpoint to get from a specific post, I'm just grabbing the first comment here
             .then(res => {
-                console.log("COMMENTS": res.data)
+                console.log(res.data)
+            setCommentList(res.data)
+            })
+            .catch(err => console.log(err))
+    }, []);
+
+   const editComment= () => {
+        axiosWithAuth()
+            .get(`/comments/${props.id}`) //need api documentation
+            .then(res => {
+                console.log("COMMENTS", res.data)
                 props.setNewCom({
                     body: res.data.body
                 })
@@ -28,12 +40,22 @@ const CommentSection = (props) => {
           .catch(err => console.log(err));
       };
 
+      
+
     return(
         <div>
-            {props.com.map(comment => {
+            <p>{commentList.username} ({commentList.firstName} {commentList.lastName}): {commentList.comment}</p>
+        
+
+            {/* {commentList.map( comment => {
+                return <p>{comment}</p>
+            })} */}
+
+
+            {/* {props.com.map(comment => {
                 return <button onClick={() => editCom(comment.id)}/>
             })}
-            
+             */}
         </div>
     )
 }

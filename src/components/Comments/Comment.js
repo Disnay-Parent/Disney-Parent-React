@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
 import CommentForm from "./CommentForm";
 import CommentSection from "./CommentSection";
+import IndividualComment from "./IndividualComment"
 // import styled from 'styled-components';
 import {connect} from "react-redux"
 
@@ -36,15 +37,16 @@ const Comment = (props) => {
         setEditCom={setEditCom}
         newCom={newCom}
         setNewCom={setNewCom}
+        id={props.id}
       />
-      <CommentSection
+      {/* <CommentSection
         com={com}
-        setNewGetCom={setNewGetCom}
+        setNewGetCom={setNewGetCom}    comment section doesnt render here, put it inside comment form
         setEditCom={setEditCom}
         newCom={newCom}
         setNewCom={setNewCom}
         editCom={editCom}
-      />
+      /> */}
     </div>
   );
 };
@@ -57,14 +59,3 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, {})(Comment);
-
-// const Comment = (props) => {
-
-//     return (
-//       <div>
-//         <p>{props.name}</p> 
-//         <p>{props.comment}</p>
-//       </div>
-//     ); //need api documentation, just guessing what the props are
-// }
-export default Comment

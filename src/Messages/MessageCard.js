@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 // import { deleteMessage } from "../actions/index"
 import styled from 'styled-components';
-import {axiosWithAuth} from "../utils/axiosWithAuth";
-import CommentForm from "../components/Comments/CommentForm";
+// import {axiosWithAuth} from "../utils/axiosWithAuth";
+import Comment from "../components/Comments/CommentForm";
 
 const CardContainer = styled.div`
     width: 98%;
@@ -26,18 +26,18 @@ const Headings = styled.h4`
 
 const MessageCard = (props) => {
 
-  const [message, setmessage] = useState({});
+  // const [message, setmessage] = useState({});
 
-    const getMessage = e => {
-        e.preventDefault();
+  //   const getMessage = e => {
+  //       e.preventDefault();
 
-        axiosWithAuth().get("/posts/")
-        .then(res => {
-            console.log(res.data)
-            localStorage.setItem("token", res.data.token)
-        })
-        .catch(err => console.log("getMessage", err))
-    }
+  //       axiosWithAuth().get("/posts/")
+  //       .then(res => {
+  //           console.log(res.data)
+  //           localStorage.setItem("token", res.data.token)
+  //       })
+  //       .catch(err => console.log("getMessage", err))
+  //   }
 
     
 
@@ -60,6 +60,7 @@ const MessageCard = (props) => {
           <Headings>Time</Headings>
           <span>{props.message.time}</span>
           <Headings>Comments</Headings>
+          <Comment id={props.message.id} />
           {/*<div><CommentForm id={props.message.post} /></div>*/}
       </CardContainer>
       

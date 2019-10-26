@@ -65,7 +65,7 @@ const MessageList = (props) => {
           </form>
           
       {searchResults.map(message => (
-          <MessageCard message={message} key={message.id}/>
+          <MessageCard message={message} key={message.id} />
         ))}   
         {firstLoad ? <h3>loading...</h3> : <p></p> }   
       </MainContainer>

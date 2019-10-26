@@ -62,7 +62,6 @@ export const logOut = () => dispatch => {
 
 export const loadPost = () => dispatch => {
   dispatch({type: LOAD_POST, payload: true})
-  console.log("ran")
   setTimeout(() => {
     
     dispatch({type: LOAD_POST, payload: false})

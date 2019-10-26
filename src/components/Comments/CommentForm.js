@@ -1,5 +1,6 @@
 import React, {useState} from "react"
 import {axiosWithAuth} from "../../utils/axiosWithAuth"
+import CommentSection from "./CommentSection"
 
 const CommentForm = (props) => {
 
@@ -8,16 +9,17 @@ const CommentForm = (props) => {
     })
 
     const handleChanges = e => {
-        props.setNewCom({ ...props.newCom, 
+        setComment({ 
+            ...comment, 
             [e.target.name]: e.target.value });
     }
 
     const handleSubmit = (e) =>{
         e.preventDefault()
-            axiosWithAuth
+            axiosWithAuth()
                 .post("/comments/create", {
-                    comment: props.newCom.body, 
-                    post_id: props.newCom.id,
+                    comment: comment.body, 
+                    post_id: props.id,
                 })
                 .then(res => {
                     console.log(res)
@@ -28,23 +30,26 @@ const CommentForm = (props) => {
 
     return (
         <div>
+            
             <form onSubmit={handleSubmit}>
                 <input
                 type="text"
                 name="body"
-                value={props.newCom.body}
-                placeHolder="type your comment here!"
+                value={comment.body}
+                placeholder="type your comment here!"
                 onChange={handleChanges}
                 />
                 {props.edit ? (
                 <div>
-                <button>Edit Comment</button>
-                <button>Delete Comment</button>
+                    <button>Edit Comment</button>
+                    <button>Delete Comment</button>
                 </div>
-              ) : (
-                <button>Add Comment</button>
+                ) : (
+                    <button type="submit">Add Comment</button>
               )}
             </form>
+            <CommentSection />
+            {/* comment section wont render unless i put it in here */}
         </div>
     )
 }
