@@ -112,7 +112,7 @@ export const comments = [
   },
 
   {
-    pcomment: "I am available immediately, you can call me",
+    comment: "I am available immediately, you can call me",
     post_id: "4"
   },
 

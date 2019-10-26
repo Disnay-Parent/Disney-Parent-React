@@ -19,9 +19,9 @@ const Dashboard = (props) => {
 
   return (
     <div>
-      <Nav />
-      {userType === "parent" && <Parent/>}
-      {userType === "volunteer" && <Volunteer/>}
+      <Nav  />
+      {userType === "parent" && <Parent name="Disney Parent" />}
+      {userType === "volunteer" && <Volunteer name="Disney Volunteer" />}
     </div>
   );
 };
