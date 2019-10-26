@@ -12,7 +12,7 @@ const ChildList = (props) => {
     
   const editChild= () => {
     axiosWithAuth()
-      .get("/children/create")
+      .put(`/children/create/edit/${props.user_id}`)
       .then(res => {
         console.log("EDIT", res.data);
         props.setNewChild({
@@ -30,7 +30,7 @@ const ChildList = (props) => {
   const deleteChild = () => {
     // console.log("ID", id);
     axiosWithAuth()
-      .delete("/children/")
+      .delete(`/children/delete/${props.user_id}`)
       .then(res => {
         console.log("ADD", res.data);
         props.setNewGetChild(true);
