@@ -68,7 +68,13 @@ const ChildForm = (props) => {
             } else {
               e.preventDefault();
               axiosWithAuth()
-                .post("/children/create", props.newChild)
+                .post("/children/create", {
+                  name: props.newChild.name,
+                  DOB: props.newChild.DOB,
+                  allergies: props.newChild.allergies,
+                  special_instructions: props.newChild.special_instructions,
+                  medical_conditions: props.newChild.medical_conditions
+              })
                 .then(res => {
                   console.log("ADD", res.data);
                   props.setNewChild({
