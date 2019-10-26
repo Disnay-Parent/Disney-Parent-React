@@ -9,13 +9,16 @@ const Borders = styled.div`
 
 const ChildList = (props) => {
 
+  console.log(props)
+
     
   const editChild= () => {
     axiosWithAuth()
-      .put(`/children/edit/${props.user_id}`)
+      .put(`/children/edit/${props.child[0].id}` )
       .then(res => {
         console.log("EDIT", res.data);
         props.setNewChild({
+          id: "",
           name: res.data.name,
           DOB: res.data.DOB, 
           allergies: res.data.allergies,

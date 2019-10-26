@@ -1,5 +1,5 @@
 import React, {useState, useEffec} from "react";
-import { deleteMessage } from "../actions/index"
+// import { deleteMessage } from "../actions/index"
 import styled from 'styled-components';
 import {axiosWithAuth} from "../utils/axiosWithAuth";
 
@@ -30,7 +30,7 @@ const MessageCard = (props) => {
     const getMessage = e => {
         e.preventDefault();
 
-        axiosWithAuth().get("/users/logged")
+        axiosWithAuth().get("/posts/")
         .then(res => {
             console.log(res.data)
             localStorage.setItem("token", res.data.token)
@@ -61,6 +61,7 @@ const MessageCard = (props) => {
           <Headings>Time</Headings>
           <span>{props.message.time}</span>
       </CardContainer>
+      
     </div>
   );
 };

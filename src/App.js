@@ -10,6 +10,7 @@ import VolunteerSignUpForm from "./components/SignUp/VolunteerSignUpForm";
 import Login from "./components/Login/Login";
 import EditParent from "./components/Parent/EditParent"
 import EditVolunteer from "./components/Volunteer/EditVolunteer"
+import EditChild from "./components/Child/EditChild";
 // import { StateProvider } from "./state/state";
 import { reducer } from "./reducers/reducers";
 import { createStore, applyMiddleware } from "redux";
@@ -35,6 +36,7 @@ function App() {
           <PublicRoute path="/login" component={Login} />
           <PrivateRoute path="/dashboard" component={Dashboard} />
           <PrivateRoute path="/parent-edit" component={EditParent} />
+          <PrivateRoute path="/child-edit" component={EditChild} />
           <PrivateRoute path="/volunteer-edit" component={EditVolunteer} />
           <PrivateRoute path="/messages/" component={Messages} />
         </Provider>

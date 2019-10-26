@@ -3,6 +3,8 @@ import {axiosWithAuth} from "../../utils/axiosWithAuth";
 import styled from 'styled-components';
 import {css} from 'styled-components';
 import MqInit from 'styled-components-media-query';
+import {Link} from 'react-router-dom';
+
 
 const bp = {s: 500, l: 800}
 const mq = MqInit({bp})
@@ -133,7 +135,8 @@ const ChildForm = (props) => {
               </ChildInput>
               
               {props.edit ? (
-                <Buttons>Edit Child</Buttons>
+                <Link to="/child-edit"><Buttons>Edit Child</Buttons></Link>
+
               ) : (
                 <Buttons>Add Child</Buttons>
               )}
