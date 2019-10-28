@@ -1,8 +1,9 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 // import { deleteMessage } from "../actions/index"
+import {comments} from '../components/DataTest';
 import styled from 'styled-components';
-// import {axiosWithAuth} from "../utils/axiosWithAuth";
-import Comment from "../components/Comments/CommentForm";
+import {axiosWithAuth} from "../utils/axiosWithAuth";
+import CommentCard from "../components/Comments/CommentCard";
 
 const CardContainer = styled.div`
     width: 98%;
@@ -26,7 +27,7 @@ const Headings = styled.h4`
 
 const MessageCard = (props) => {
 
-  // const [message, setmessage] = useState({});
+  const [message, setMessage] = useState({});
 
   //   const getMessage = e => {
   //       e.preventDefault();
@@ -60,8 +61,7 @@ const MessageCard = (props) => {
           <Headings>Time</Headings>
           <span>{props.message.time}</span>
           <Headings>Comments</Headings>
-          <Comment id={props.message.id} />
-          {/*<div><CommentForm id={props.message.post} /></div>*/}
+            <CommentCard id={props.message.post} />
       </CardContainer>
       
     </div>
