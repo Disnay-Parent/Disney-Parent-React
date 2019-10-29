@@ -61,7 +61,7 @@ const messageData = messages.slice(0, 3).map(m => {
     });
     return ( 
         <div>
-            <ApprovedRequestTitle>Recent Messages</ApprovedRequestTitle>
+            <ApprovedRequestTitle>Past Messages</ApprovedRequestTitle>
             {messageData}
         </div>
     );
